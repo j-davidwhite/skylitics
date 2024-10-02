@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          my app
+          Joshua White, Aaron Hussain, Dheeman Thakar
         </a>
       </header>
     </div>
