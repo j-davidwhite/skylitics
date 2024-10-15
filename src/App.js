@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Joshua White, Aaron Hussain, Dheeman Thakar
+          Joshua White: 102363543, Aaron Hussain, Dheeman Thakar,
         </a>
       </header>
     </div>
