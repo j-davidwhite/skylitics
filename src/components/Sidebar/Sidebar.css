@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /* Light Theme Variables */
+  --bg-light: #e8e8e8; /* Background color */
+  --text-light: #000; /* Text color for light mode */
+  --selected-light: inset 6px 6px 12px #b5b5b5, inset -6px -6px 12px #ffffff,
+    6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff; /* Light selected shadow */
+  --deselected-light: 6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff; /* Light deselected shadow */
+
+  /* Dark Theme Variables */
+  --bg-dark: #212121; /* Dark mode background */
+  --text-dark: #e8e8e8; /* Text color for dark mode */
+  --selected-dark: inset 7px 7px 14px #15140e, inset -7px -7px 14px #2b281c,
+    7px 7px 14px #15140e, inset -7px -7px 14px #2b281c, 7px 7px 14px #15140e,
+    -7px -7px 14px #2b281c;
+  --deselected-dark: 7px 7px 14px #15140e, -7px -7px 14px #2b281c; /* Dark deselected shadow */
+}
+
+.sidebar {
+  background-color: var(--bg-light); /* Light background */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0.2rem 1rem 1rem;
+  padding-bottom: 10rem;
+}
+.logo {
+  width: 2.5rem;
+  height: auto;
+}
+.skylitics {
+  font-family: "REM", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 30px !important;
+}
+/*================================ SIDEBAR TOP ================================*/
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-top div {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  width: 12rem;
+}
+
+/*================================ SIDEBAR MIDDLE ================================*/
+.sidebar-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sidebar-middle div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: var(--bg-light); /* Light background */
+  box-shadow: var(--deselected-light); /* Light deselected shadow */
+
+  width: 12rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.sidebar-middle div.selected {
+  background: var(--bg-light); /* Light selected background */
+  box-shadow: var(--selected-light); /* Light selected shadow */
+  border: 3.5px solid #e8e8e8;
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.sidebar-icon {
+  margin-left: 2rem;
+}
+.sidebar-text {
+  flex-grow: 1;
+  text-align: left;
+}
+
+/*================================ SIDEBAR BOTTOM ================================*/
+.sidebar-bottom {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sidebar-bottom .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  background: var(--bg-light); /* Light background */
+  box-shadow: var(--deselected-light); /* Light deselected shadow */
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.light-mode.selected,
+.icon-container.selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  background: var(--bg-light); /* Light selected background */
+  box-shadow: var(--selected-light); /* Light selected shadow */
+}
+
+/*============================== DARK MODE STYLES ==============================*/
+.sidebar.dark {
+  background-color: var(--bg-dark); /* Dark mode background */
+  color: var(--text-dark); /* Dark mode text color */
+}
+
+.sidebar.dark .sidebar-middle div {
+  color: var(--text-dark); /* Dark mode text color */
+  background: #201e15; /* Dark middle background */
+  box-shadow: var(--deselected-dark); /* Dark deselected shadow */
+}
+
+.sidebar.dark .sidebar-middle div.selected {
+  background: #201e15; /* Dark selected background */
+  box-shadow: var(--selected-dark); /* Dark selected shadow */
+  border: 3.5px solid #212121;
+}
+
+.sidebar.dark .sidebar-bottom .icon-container {
+  background: #201e15; /* Dark icon container background */
+  box-shadow: var(--deselected-dark); /* Dark deselected shadow */
+}
+
+.sidebar.dark .light-mode.selected,
+.sidebar.dark .icon-container.selected {
+  background: #201e15; /* Dark selected background */
+  box-shadow: var(--selected-dark); /* Dark selected shadow */
+}
+/*===================*/
+
+.light-mode.glow {
+  fill: #ffcc00; /* Moon glows with this color in light mode */
+  transition: fill 0.7s;
+}
+
+.dark-mode.glow {
+  fill: #5956d6; /* Sun glows with this color in dark mode */
+  transition: fill 0.7s;
+}

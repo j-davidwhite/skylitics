@@ -1,5 +1,17 @@
 .App {
+  /*background-color: #f6f8fe;*/
+  background-color: #e8e8e8;
   text-align: center;
+  display: grid;
+  grid-template-rows: 0.4fr 3fr 1fr;
+  grid-template-columns: 0.6fr 3fr;
+  grid-template-areas:
+    "sidebar navbar"
+    "sidebar app-header"
+    "sidebar app-header";
+
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .App-logo {
@@ -14,7 +26,9 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e8e8e8;
+  background: #e8e8e8;
+  box-shadow: inset 5px 5px 10px #d3d3d3, inset -5px -5px 10px #fdfdfd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +36,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  grid-area: app-header;
 }
 
 .App-link {
@@ -35,4 +50,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.navbar {
+  grid-area: navbar;
 }

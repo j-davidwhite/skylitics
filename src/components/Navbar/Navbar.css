@@ -1,0 +1,23 @@
+.navbar {
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: space-between;
+  background: #e8e8e8;
+  box-shadow: inset 5px 5px 10px #d3d3d3, inset -5px -5px 10px #fdfdfd;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 3rem;
+}
