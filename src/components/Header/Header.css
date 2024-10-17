@@ -1,0 +1,111 @@
+.header {
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: space-between;
+  background: #e8e8e8;
+  box-shadow: inset 5px 5px 10px #d3d3d3, inset -5px -5px 10px #fdfdfd;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 3rem;
+}
+.search-bar-container .search-bar {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 100px !important;
+  background: var(--bg-light) !important;
+  box-shadow: var(--selected-light) !important;
+  padding-left: 2.5rem !important;
+  padding: 0.5rem;
+  border: 3px solid var(--bg-light) !important;
+  width: 20rem;
+}
+
+.header.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  box-shadow: var(--deselected-dark);
+}
+
+.notifications {
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  border-radius: 100rem;
+  padding: 0.6rem;
+}
+
+.notifications-container .notifications:hover {
+  background: var(--bg-light);
+  box-shadow: var(--selected-light);
+}
+.notifications-container .notifications:hover {
+  transform: scale(0.9);
+  fill: #34b3fc;
+}
+.notifications-container.notifications {
+  transition: transform 0.5s ease, fill 0.5s ease;
+}
+
+.settings {
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  border-radius: 100rem;
+  padding: 0.6rem;
+}
+
+.settings-container .settings:hover {
+  background: var(--bg-light);
+  box-shadow: var(--selected-light);
+}
+.settings-container .settings:hover {
+  transform: scale(0.9);
+  fill: #ffa836;
+}
+.settings-container.settings {
+  transition: transform 0.5s ease, fill 0.5s ease;
+}
+/*===================== DARK MODE =======================*/
+.dark .notifications {
+  background: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+}
+.dark .notifications:hover {
+  background: var(--bg-dark);
+  box-shadow: var(--selected-dark);
+  transform: scale(0.9);
+  fill: #34b3fc;
+}
+.dark .settings {
+  background: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+}
+.dark .settings:hover {
+  background: var(--bg-dark);
+  box-shadow: var(--selected-dark);
+  transform: scale(0.9);
+  fill: #ffa836;
+}
+
+.dark .search-bar-container .search-bar {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 100px !important;
+  background: var(--bg-dark) !important;
+  box-shadow: var(--selected-dark) !important;
+  padding-left: 2.5rem !important;
+  padding: 0.5rem;
+  border: 3px solid var(--bg-dark) !important;
+  width: 20rem;
+}

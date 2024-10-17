@@ -13,6 +13,9 @@
   gap: 2rem;
   padding: 1rem;
 }
+.App.dark {
+  background-color: #1e1e1e;
+}
 
 .App-logo {
   height: 40vmin;

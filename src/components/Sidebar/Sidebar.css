@@ -2,11 +2,11 @@
 
 :root {
   /* Light Theme Variables */
-  --bg-light: #e8e8e8; /* Background color */
-  --text-light: #000; /* Text color for light mode */
+  --bg-light: #e8e8e8;
+  --text-light: #000;
   --selected-light: inset 6px 6px 12px #b5b5b5, inset -6px -6px 12px #ffffff,
-    6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff; /* Light selected shadow */
-  --deselected-light: 6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff; /* Light deselected shadow */
+    6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff;
+  --deselected-light: 6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff;
 
   /* Dark Theme Variables */
   --bg-dark: #212121; /* Dark mode background */
@@ -27,11 +27,19 @@
   padding: 0.2rem 1rem 1rem;
   padding-bottom: 10rem;
 }
+.sidebar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: underline; /* Optional hover effect */
+}
 .logo {
   width: 2.5rem;
   height: auto;
 }
-.skylitics {
+.skylytics {
   font-family: "REM", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
@@ -128,40 +136,40 @@
 
 /*============================== DARK MODE STYLES ==============================*/
 .sidebar.dark {
-  background-color: var(--bg-dark); /* Dark mode background */
-  color: var(--text-dark); /* Dark mode text color */
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 .sidebar.dark .sidebar-middle div {
-  color: var(--text-dark); /* Dark mode text color */
-  background: #201e15; /* Dark middle background */
-  box-shadow: var(--deselected-dark); /* Dark deselected shadow */
+  color: var(--text-dark);
+  background: #201e15;
+  box-shadow: var(--deselected-dark);
 }
 
 .sidebar.dark .sidebar-middle div.selected {
-  background: #201e15; /* Dark selected background */
-  box-shadow: var(--selected-dark); /* Dark selected shadow */
+  background: #201e15;
+  box-shadow: var(--selected-dark);
   border: 3.5px solid #212121;
 }
 
 .sidebar.dark .sidebar-bottom .icon-container {
-  background: #201e15; /* Dark icon container background */
-  box-shadow: var(--deselected-dark); /* Dark deselected shadow */
+  background: #201e15;
+  box-shadow: var(--deselected-dark);
 }
 
 .sidebar.dark .light-mode.selected,
 .sidebar.dark .icon-container.selected {
-  background: #201e15; /* Dark selected background */
-  box-shadow: var(--selected-dark); /* Dark selected shadow */
+  background: #201e15;
+  box-shadow: var(--selected-dark);
 }
 /*===================*/
 
 .light-mode.glow {
-  fill: #ffcc00; /* Moon glows with this color in light mode */
+  fill: #ffcc00;
   transition: fill 0.7s;
 }
 
 .dark-mode.glow {
-  fill: #5956d6; /* Sun glows with this color in dark mode */
+  fill: #5956d6;
   transition: fill 0.7s;
 }

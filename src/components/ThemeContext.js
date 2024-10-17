@@ -10,11 +10,12 @@ export const useTheme = () => useContext(ThemeContext);
 // Define color themes
 const themes = {
   light: {
+    App: {},
     sidebar: {
       background: "#e8e8e8",
       color: "#000000",
     },
-    navbar: {
+    header: {
       background: "#ffffff",
       color: "#000000",
     },
@@ -25,7 +26,7 @@ const themes = {
       background: "#green",
       color: "#ffffff",
     },
-    navbar: {
+    header: {
       background: "green",
       color: "#ffffff",
     },

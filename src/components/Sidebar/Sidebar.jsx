@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTheme } from "../ThemeContext";
 import "./Sidebar.css";
 import LightModeSharpIcon from "@mui/icons-material/LightModeSharp";
@@ -13,35 +14,40 @@ function Sidebar() {
   const [selected, setSelected] = useState(0); // Track selected item, default to first element
   const { isLightMode, toggleTheme } = useTheme(); // Use the theme context
 
+  // Define sidebar items with text, corresponding icons, and paths
+  const sidebarItems = [
+    { text: "Dashboard", icon: <DashboardOutlinedIcon />, path: "/Dashboard" },
+    { text: "Analytics", icon: <AnalyticsOutlinedIcon />, path: "/Analytics" },
+    { text: "About", icon: <InfoOutlinedIcon />, path: "/About" },
+    { text: "Support", icon: <SupportAgentOutlinedIcon />, path: "/Support" },
+  ];
+
   const handleClick = (index) => {
     setSelected(index); // Update selected index on click
   };
 
-  // Define sidebar items with text and corresponding icons
-  const sidebarItems = [
-    { text: "Dashboard", icon: <DashboardOutlinedIcon /> },
-    { text: "Analytics", icon: <AnalyticsOutlinedIcon /> },
-    { text: "About", icon: <InfoOutlinedIcon /> },
-    { text: "Support", icon: <SupportAgentOutlinedIcon /> },
-  ];
-
   return (
     <div className={`sidebar ${isLightMode ? "light" : "dark"}`}>
       <div className="sidebar-top">
-        <div className="skylitics">
-          Skylitics <img className="logo" src={logo}></img>
+        <div className="skylytics">
+          Skylytics <img className="logo" src={logo} alt="Skylitics Logo" />
         </div>
       </div>
       <div className="sidebar-middle">
         {sidebarItems.map((item, index) => (
-          <div
+          <Link
+            to={item.path}
             key={index}
-            onClick={() => handleClick(index)} // Set selected on click
-            className={`sidebar-item ${selected === index ? "selected" : ""}`} // Apply class based on selection
+            className={`sidebar-link`}
+            onClick={() => handleClick(index)}
           >
-            <span className="sidebar-icon">{item.icon}</span>
-            <span className="sidebar-text">{item.text}</span>
-          </div>
+            <div
+              className={`sidebar-item ${selected === index ? "selected" : ""}`}
+            >
+              <span className="sidebar-icon">{item.icon}</span>
+              <span className="sidebar-text">{item.text}</span>
+            </div>
+          </Link>
         ))}
       </div>
       <div className="sidebar-bottom">
