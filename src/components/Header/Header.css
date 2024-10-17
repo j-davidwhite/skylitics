@@ -108,4 +108,8 @@
   padding: 0.5rem;
   border: 3px solid var(--bg-dark) !important;
   width: 20rem;
+  color: var(--text-light) !important;
+}
+.dark .search-bar input::placeholder {
+  color: var(--text-light);
 }
