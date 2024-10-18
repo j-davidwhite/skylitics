@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .header {
   background-color: #e8e8e8;
   display: flex;
@@ -18,6 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 1rem;
 
   gap: 3rem;
 }
@@ -38,11 +44,12 @@
   color: var(--text-dark);
   box-shadow: var(--deselected-dark);
 }
-
 .notifications {
   background: var(--bg-light);
   box-shadow: var(--deselected-light);
   border-radius: 100rem;
+  min-width: 3rem; /* Ensure it's wide enough */
+  min-height: 3rem;
   padding: 0.6rem;
 }
 
@@ -56,13 +63,20 @@
 }
 .notifications-container.notifications {
   transition: transform 0.5s ease, fill 0.5s ease;
+  padding: 2rem;
 }
 
 .settings {
   background: var(--bg-light);
   box-shadow: var(--deselected-light);
   border-radius: 100rem;
+  min-width: 3rem; /* Ensure it's wide enough */
+  min-height: 3rem;
   padding: 0.6rem;
+}
+.settings-container.settings {
+  min-width: 3rem; /* Ensure it's wide enough */
+  min-height: 3rem;
 }
 
 .settings-container .settings:hover {
@@ -110,6 +124,7 @@
   width: 20rem;
   color: var(--text-light) !important;
 }
+
 .dark .search-bar input::placeholder {
   color: var(--text-light);
 }
