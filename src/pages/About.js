@@ -3,6 +3,7 @@ import "./About.css";
 import photo1 from "../assets/joshua.memoji.png";
 import photo2 from "../assets/dheeman.memoji.png";
 import photo3 from "../assets/aaron.memoji.png";
+import team_name from "../assets/oreo97.png";
 import instagram from "../assets/instagram.png";
 import linkedin from "../assets/linkedin.png";
 import github from "../assets/github.png";
@@ -56,7 +57,7 @@ const About = () => {
         </div>
       </div>
 
-      <div>Oreo'997</div>
+      <img src={team_name}></img>
     </div>
   );
 };
