@@ -1,0 +1,35 @@
+.flight-planner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  width: 60rem;
+  height: 10rem;
+}
+.flight-planner-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.departure-select {
+  width: 10rem;
+}
+.trip-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.PlaneIcon {
+  width: 4rem;
+  height: auto;
+}
+.destination-select {
+  width: 10rem;
+}

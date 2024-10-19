@@ -49,7 +49,8 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 4rem;
+  width: 60rem;
 }
 .profile {
   display: flex;
@@ -60,7 +61,7 @@ h2 {
   box-shadow: var(--deselected-light);
   color: var(--text-light);
   height: 23rem;
-  width: 17rem;
+  width: 17.3rem;
   gap: 1.3rem;
   border: var(--border-light);
   border-radius: 10px;
@@ -170,7 +171,7 @@ h2 {
   box-shadow: var(--deselected-light);
   border: var(--border-light);
   border-radius: 10px;
-  width: 55rem;
+  width: 60rem;
   height: 12rem;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;

@@ -18,6 +18,9 @@
   justify-content: center;
   gap: 3rem;
 }
+.dashboard {
+  width: 8rem;
+}
 
 .header-right {
   display: flex;
@@ -36,7 +39,7 @@
   padding-left: 2.5rem !important;
   padding: 0.5rem;
   border: 3px solid var(--bg-light) !important;
-  width: 20rem;
+  width: 30rem;
 }
 
 .header.dark {

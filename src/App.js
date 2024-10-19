@@ -1,12 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, useTheme } from "./components/ThemeContext";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Dashboard from "./pages/Dashboard";
-import Analytics from "./pages/Analytics";
-import About from "./pages/About";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Analytics from "./pages/Analytics/Analytics";
+import About from "./pages/About/About";
 
 function AppContent() {
   const { isLightMode } = useTheme();

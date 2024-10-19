@@ -16,10 +16,10 @@ function Sidebar() {
 
   // Define sidebar items with text, corresponding icons, and paths
   const sidebarItems = [
-    { text: "Dashboard", icon: <DashboardOutlinedIcon />, path: "/Dashboard" },
-    { text: "Analytics", icon: <AnalyticsOutlinedIcon />, path: "/Analytics" },
-    { text: "About", icon: <InfoOutlinedIcon />, path: "/About" },
-    { text: "Support", icon: <SupportAgentOutlinedIcon />, path: "/Support" },
+    { text: "Dashboard", icon: <DashboardOutlinedIcon />, path: "/" },
+    { text: "Analytics", icon: <AnalyticsOutlinedIcon />, path: "/analytics" },
+    { text: "About", icon: <InfoOutlinedIcon />, path: "/about" },
+    { text: "Support", icon: <SupportAgentOutlinedIcon />, path: "/support" },
   ];
 
   const handleClick = (index) => {

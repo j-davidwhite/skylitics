@@ -1,15 +1,15 @@
 import React from "react";
 import "./About.css";
-import photo1 from "../assets/joshua.memoji.png";
-import photo2 from "../assets/dheeman.memoji.png";
-import photo3 from "../assets/aaron.memoji.png";
-import team_name from "../assets/oreo97.png";
-import instagram from "../assets/instagram.png";
-import linkedin from "../assets/linkedin.png";
-import github from "../assets/github.png";
-import analytics from "../assets/icons8-analytics.png";
-import weather from "../assets/icons8-weather.png";
-import flight from "../assets/icons8-flight.png";
+import photo1 from "../../assets/joshua.memoji.png";
+import photo2 from "../../assets/dheeman.memoji.png";
+import photo3 from "../../assets/aaron.memoji.png";
+import team_name from "../../assets/oreo97.png";
+import instagram from "../../assets/instagram.png";
+import linkedin from "../../assets/linkedin.png";
+import github from "../../assets/github.png";
+import analytics from "../../assets/icons8-analytics.png";
+import weather from "../../assets/icons8-weather.png";
+import flight from "../../assets/icons8-flight.png";
 
 const About = () => {
   return (
@@ -54,7 +54,7 @@ const About = () => {
         <div className="profile-section">
           <div className="profile">
             <div className="circle">
-              <img className="photo1" src={photo1} />
+              <img className="photo1" src={photo1} alt="" />
             </div>
             <div className="profile-info">
               <div className="name">Joshua White</div>
@@ -62,45 +62,45 @@ const About = () => {
             </div>
 
             <div className="icons">
-              <img src={instagram}></img>
-              <img src={github}></img>
-              <img src={linkedin}></img>
+              <img src={instagram} alt=""></img>
+              <img src={github} alt=""></img>
+              <img src={linkedin} alt=""></img>
             </div>
           </div>
           <div className="profile">
             <div className="circle">
-              <img className="photo2" src={photo2} />
+              <img className="photo2" src={photo2} alt="" />
             </div>
             <div className="profile-info">
-              <div className="name">Aaron Hussain</div>
+              <div className="name">Dheeman Thakar</div>
               <div className="role">Machine Learning Engineer</div>
             </div>
 
             <div className="icons">
-              <img src={instagram}></img>
-              <img src={github}></img>
-              <img src={linkedin}></img>
+              <img src={instagram} alt=""></img>
+              <img src={github} alt=""></img>
+              <img src={linkedin} alt=""></img>
             </div>
           </div>
           <div className="profile">
             <div className="circle">
-              <img className="photo3" src={photo3} />
+              <img className="photo3" src={photo3} alt="" />
             </div>
             <div className="profile-info">
-              <div className="name">Dheeman Thakar</div>
+              <div className="name">Aaron Hussain</div>
               <div className="role">Backend Developer</div>
             </div>
 
             <div className="icons">
-              <img src={instagram}></img>
-              <img src={github}></img>
-              <img src={linkedin}></img>
+              <img src={instagram} alt=""></img>
+              <img src={github} alt=""></img>
+              <img src={linkedin} alt=""></img>
             </div>
           </div>
         </div>
       </div>
       <div className="team-container">
-        <img src={team_name} className="team-name"></img>
+        <img src={team_name} alt="" className="team-name"></img>
         <div className="line"></div>
       </div>
     </div>
