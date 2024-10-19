@@ -11,6 +11,7 @@
   --selected-light: inset 6px 6px 12px #b5b5b5, inset -6px -6px 12px #ffffff,
     6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff;
   --deselected-light: 6px 6px 12px #b5b5b5, -6px -6px 12px #ffffff;
+  --border-light: 0.5px solid #e4d1d1;
 
   /* Dark Theme Variables */
   --bg-dark: #212121; /* Dark mode background */
@@ -18,7 +19,8 @@
   --selected-dark: inset 7px 7px 14px #15140e, inset -7px -7px 14px #2b281c,
     7px 7px 14px #15140e, inset -7px -7px 14px #2b281c, 7px 7px 14px #15140e,
     -7px -7px 14px #2b281c;
-  --deselected-dark: 7px 7px 14px #15140e, -7px -7px 14px #2b281c; /* Dark deselected shadow */
+  --deselected-dark: 7px 7px 14px #15140e, -7px -7px 14px #2b281c;
+  --border-dark: 0.5px solid #15140e;
 }
 
 .sidebar {
@@ -81,8 +83,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: var(--bg-light); /* Light background */
-  box-shadow: var(--deselected-light); /* Light deselected shadow */
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
   width: 100%;
   width: 12rem;
   height: 3rem;
@@ -90,8 +92,8 @@
 }
 
 .sidebar-middle div.selected {
-  background: var(--bg-light); /* Light selected background */
-  box-shadow: var(--selected-light); /* Light selected shadow */
+  background: var(--bg-light);
+  box-shadow: var(--selected-light);
   border: 3.5px solid #e8e8e8;
 }
 .sidebar-item {
@@ -122,7 +124,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-
   background: var(--bg-light);
   box-shadow: var(--deselected-light);
   width: 3rem;
@@ -136,9 +137,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-
-  background: var(--bg-light); /* Light selected background */
-  box-shadow: var(--selected-light); /* Light selected shadow */
+  background: var(--bg-light);
+  box-shadow: var(--selected-light);
 }
 
 /*============================== DARK MODE STYLES ==============================*/
@@ -162,12 +162,14 @@
 .sidebar.dark .sidebar-bottom .icon-container {
   background: #201e15;
   box-shadow: var(--deselected-dark);
+  border: var(--border-dark);
 }
 
 .sidebar.dark .light-mode.selected,
 .sidebar.dark .icon-container.selected {
   background: #201e15;
   box-shadow: var(--selected-dark);
+  border: var(--border-dark);
 }
 /*===================*/
 
@@ -179,4 +181,13 @@
 .dark-mode.glow {
   fill: #5956d6;
   transition: fill 0.7s;
+}
+/* Light Mode Icon Styles */
+.light-mode {
+  color: var(--bg-dark);
+}
+
+/* Dark Mode Icon Styles */
+.dark-mode {
+  color: var(--bg-light);
 }

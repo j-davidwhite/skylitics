@@ -3,18 +3,53 @@
   padding: 0;
   box-sizing: border-box;
 }
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
 .about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  color: var(--text-light);
+  padding: 1rem;
+}
+h2 {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.project-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--text-light);
-  gap: 3rem;
+  gap: 2rem;
 }
-.profile-container {
+.project-info {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/*================================== PROFILE ================================== */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
+}
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 .profile {
   display: flex;
@@ -26,7 +61,9 @@
   color: var(--text-light);
   height: 23rem;
   width: 17rem;
-  gap: 1.1rem;
+  gap: 1.3rem;
+  border: var(--border-light);
+  border-radius: 10px;
 }
 .circle {
   background: #dde1e7;
@@ -50,10 +87,37 @@
   box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
     inset 5px 5px 9px rgba(94, 104, 121, 0.3);
 }
-.photo {
-  width: 10rem;
+.photo2 {
+  width: 9rem;
   height: auto;
-  margin-bottom: 1rem;
+}
+.photo1,
+.photo3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: auto;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.name {
+  font-size: 25px;
+}
+.role {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
 }
 .icons {
   display: flex;
@@ -61,20 +125,76 @@
   align-items: center;
   gap: 2.5rem;
 }
-.icons img {
-  width: 2rem;
+.icons > img {
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: 3rem;
   height: auto;
 }
-
-/* .line {
+.icons > img:hover {
+  background: var(--bg-light);
+  box-shadow: var(--selected-light);
+  border: 3px solid #e8e8e8;
+}
+.team-name {
+  width: 18rem;
+  height: auto;
+}
+.team-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.line {
   width: 300px;
   height: 6px;
-  background-color: #e0e0e0;
+  background-color: var(--bg-light);
   border-radius: 10px;
-
-
-  box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.6),
-inset 5px 5px 9px rgba(94, 104, 121, 0.3); 
+  box-shadow: var(--deselected-light);
 }
 
-*/
+/*================================== KEY FEATURES ================================== */
+.features-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.features-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  background-color: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  border: var(--border-light);
+  border-radius: 10px;
+  width: 55rem;
+  height: 12rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  gap: 1rem;
+}
+.feature-icon {
+  width: 3rem;
+  height: auto;
+}
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  box-shadow: inset 5px 5px 9px #bebebe, inset -5px -5px 9px #ffffff;
+  border-radius: 100px;
+}
