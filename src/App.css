@@ -44,7 +44,7 @@
 .main-content {
   grid-area: main-content;
   background-color: var(--bg-light);
-  box-shadow: var(--selected-light);
+  box-shadow: inset 5px 5px 9px #bebebe, inset -5px -5px 9px #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;

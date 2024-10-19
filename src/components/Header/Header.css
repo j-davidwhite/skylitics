@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   background: #e8e8e8;
-  box-shadow: inset 5px 5px 10px #d3d3d3, inset -5px -5px 10px #fdfdfd;
+  box-shadow: inset 5px 5px 9px #bebebe, inset -5px -5px 9px #ffffff;
   padding-left: 2rem;
   padding-right: 2rem;
 }
