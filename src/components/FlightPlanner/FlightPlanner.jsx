@@ -13,6 +13,7 @@ import dayjs from "dayjs";
 
 const FlightPlanner = () => {
   const [destinationCity, setDestinationCity] = useState("");
+  const [selectedDate, setSelectedDate] = useState(dayjs());
 
   const getDestinationAcronym = (city) => {
     switch (city) {

@@ -11,14 +11,16 @@ function Header() {
   const location = useLocation();
 
   const getPageName = () => {
-    switch (location.pathname) {
+    switch (
+      location.pathname.toLowerCase() // Convert pathname to lowercase
+    ) {
       case "/":
         return "Dashboard";
-      case "/Analytics":
+      case "/analytics":
         return "Analytics";
-      case "/About":
+      case "/about":
         return "About";
-      case "/Support":
+      case "/support":
         return "Support";
       default:
         return "Dashboard";
@@ -31,13 +33,13 @@ function Header() {
         <div className="dashboard">{getPageName()}</div>
         <div className="search-bar-container">
           <TextField
-            className="search-bar" // Ensure the className prop is applied
+            className="search-bar"
             variant="standard"
             InputProps={{
               disableUnderline: true,
             }}
             placeholder="Search..."
-            fullWidth // Makes the search bar take the full width of its container
+            fullWidth
           />
         </div>
       </div>

@@ -12,11 +12,9 @@ function AppContent() {
 
   return (
     <div className={`App ${isLightMode ? "" : "dark"}`}>
-      {/* Keeping Sidebar and Header static */}
       <Sidebar className="sidebar" />
       <Header className="header" />
 
-      {/* Creating a container for the dynamic content */}
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Dashboard />} />
