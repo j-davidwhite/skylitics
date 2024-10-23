@@ -4,8 +4,16 @@
   align-items: center;
   background: var(--bg-light);
   box-shadow: var(--deselected-light);
-  width: 60rem;
+  width: 80rem;
   height: 10rem;
+  border-radius: 10px;
+}
+.flight-planner-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 }
 .flight-planner-form {
   display: flex;
@@ -18,18 +26,20 @@
   font-style: normal;
 }
 .departure-select {
-  width: 10rem;
+  width: 14rem;
 }
 .trip-details {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 40rem;
+  gap: 1rem;
 }
 .PlaneIcon {
   width: 4rem;
   height: auto;
 }
 .destination-select {
-  width: 10rem;
+  width: 14rem;
 }

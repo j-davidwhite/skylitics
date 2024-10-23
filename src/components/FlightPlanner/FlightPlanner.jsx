@@ -31,62 +31,69 @@ const FlightPlanner = () => {
   return (
     <div className="flight-planner">
       <form className="flight-planner-form" noValidate autoComplete="off">
-        <TextField
-          className="departure-select"
-          id="standard-select-city"
-          select
-          label="Departure City"
-          value="Melbourne" // Default locked value
-          helperText="This field is locked"
-          variant="standard"
-          disabled // Disable the select field
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <FlightTakeoffSharpIcon />
-              </InputAdornment>
-            ),
-          }}
-        >
-          <MenuItem value="Melbourne">Melbourne</MenuItem>
-        </TextField>
-        <div className="trip-details">
-          <h2>MLB</h2> ------------------
-          <img src={PlaneIcon} className="PlaneIcon" />
-          ------------------
-          <h2>{getDestinationAcronym(destinationCity)}</h2>
+        <div className="flight-planner-left">
+          <TextField
+            className="departure-select"
+            id="standard-select-city"
+            select
+            label="Departure City"
+            value="Melbourne" // Default locked value
+            helperText="This field is locked"
+            variant="standard"
+            disabled // Disable the select field
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FlightTakeoffSharpIcon />
+                </InputAdornment>
+              ),
+            }}
+          >
+            <MenuItem value="Melbourne">Melbourne</MenuItem>
+          </TextField>
+
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label="Select Date"
+              value={selectedDate}
+              onChange={(newDate) => setSelectedDate(newDate)}
+              renderInput={(params) => <TextField {...params} />}
+              orientation="landscape"
+              minDate={dayjs()}
+            />
+          </LocalizationProvider>
         </div>
-        <TextField
-          className="destination-select"
-          id="standard-select-destination"
-          select
-          label="Destination City"
-          value={destinationCity} // Track selected city with state
-          onChange={(e) => setDestinationCity(e.target.value)} // Handle selection
-          helperText="Please select your destination"
-          variant="standard"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <FlightLandSharpIcon />
-              </InputAdornment>
-            ),
-          }}
-        >
-          <MenuItem value="Brisbane">Brisbane</MenuItem>
-          <MenuItem value="Perth">Perth</MenuItem>
-          <MenuItem value="Sydney">Sydney</MenuItem>
-        </TextField>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            label="Select Date"
-            value={selectedDate}
-            onChange={(newDate) => setSelectedDate(newDate)}
-            renderInput={(params) => <TextField {...params} />}
-            orientation="landscape"
-            minDate={dayjs()}
-          />
-        </LocalizationProvider>
+        <div className="flight-planner-middle">
+          <div className="trip-details">
+            <h2>MLB</h2>------------------
+            <img src={PlaneIcon} className="PlaneIcon" />
+            ------------------
+            <h2>{getDestinationAcronym(destinationCity)}</h2>
+          </div>
+        </div>
+        <div className="flight-planner-right">
+          <TextField
+            className="destination-select"
+            id="standard-select-destination"
+            select
+            label="Destination City"
+            value={destinationCity} // Track selected city with state
+            onChange={(e) => setDestinationCity(e.target.value)} // Handle selection
+            helperText="Select your destination"
+            variant="standard"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FlightLandSharpIcon />
+                </InputAdornment>
+              ),
+            }}
+          >
+            <MenuItem value="Brisbane">Brisbane</MenuItem>
+            <MenuItem value="Perth">Perth</MenuItem>
+            <MenuItem value="Sydney">Sydney</MenuItem>
+          </TextField>
+        </div>
       </form>
     </div>
   );

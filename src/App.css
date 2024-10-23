@@ -35,10 +35,11 @@
 
 .header {
   grid-area: header;
-  width: 100%; /* Full width */
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 1rem; /* Adjust as needed */
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .main-content {
@@ -50,4 +51,5 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  border-radius: 10px;
 }
