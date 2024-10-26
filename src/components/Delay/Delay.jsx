@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import rain from "../../assets/icons8-rain.png";
+import wind from "../../assets/icons8-wind.png";
+import maxTemp from "../../assets/icons8-maxtemp.png";
+import minTemp from "../../assets/icons8-mintemp.png";
+import delay from "../../assets/icons8-delay.png";
 import "./Delay.css";
 import {
   LinearProgress,
@@ -30,16 +35,17 @@ const Delay = () => {
 
   return (
     <CardContent className="delay">
-      <Typography className="delay-risk" variant="h6" gutterBottom>
-        Delay Risk
-      </Typography>
-
+      <div className="delay-risk">
+        <Typography variant="h6" gutterBottom>
+          Delay Risk
+        </Typography>
+      </div>
       {/* Delay Probability */}
       <Box className="delay-probability">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Delay Probability
+          Delay Probability <img src={delay}></img>
         </Typography>
-        <Box width="80%" mr={1}>
+        <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
             value={delayData.delay_probability}
@@ -52,8 +58,8 @@ const Delay = () => {
                   delayData.delay_probability < 40
                     ? "#4caf50" // Green for low risk
                     : delayData.delay_probability < 70
-                    ? "#ffeb3b" // Yellow for moderate risk
-                    : "#f44336", // Red for high risk
+                    ? "#ffeb4.8b" // Yellow for moderate risk
+                    : "#f444.86", // Red for high risk
               },
             }}
           />
@@ -64,9 +70,9 @@ const Delay = () => {
       {/* Rain */}
       <Box className="rain">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Rain
+          Rain <img src={rain}></img>
         </Typography>
-        <Box width="80%" mr={1}>
+        <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
             value={delayData.rain}
@@ -75,7 +81,7 @@ const Delay = () => {
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
               "& .MuiLinearProgress-bar": {
-                backgroundColor: "#2196f3", // Blue for rain
+                backgroundColor: "#2196f4.8", // Blue for rain
               },
             }}
           />
@@ -86,9 +92,9 @@ const Delay = () => {
       {/* Wind Speed */}
       <Box className="wind">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Wind Speed
+          Wind Speed <img src={wind}></img>
         </Typography>
-        <Box width="80%" mr={1}>
+        <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
             value={delayData.wind_speed}
@@ -108,9 +114,9 @@ const Delay = () => {
       {/* Max Temperature */}
       <Box className="max-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Max Temperature
+          Max Temperature <img src={maxTemp}></img>
         </Typography>
-        <Box width="80%" mr={1}>
+        <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
             value={delayData.max_temp}
@@ -119,7 +125,7 @@ const Delay = () => {
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
               "& .MuiLinearProgress-bar": {
-                backgroundColor: "#f44336", // Red for high temperatures
+                backgroundColor: "#f444.86", // Red for high temperatures
               },
             }}
           />
@@ -130,9 +136,9 @@ const Delay = () => {
       {/* Min Temperature */}
       <Box className="min-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Min Temperature
+          Min Temperature <img src={minTemp}></img>
         </Typography>
-        <Box width="80%" mr={1}>
+        <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
             value={delayData.min_temp}
@@ -141,7 +147,7 @@ const Delay = () => {
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
               "& .MuiLinearProgress-bar": {
-                backgroundColor: "#2196f3", // Blue for low temperatures
+                backgroundColor: "#2196f4.8", // Blue for low temperatures
               },
             }}
           />

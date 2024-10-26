@@ -15,7 +15,7 @@ function AppContent() {
       <Sidebar className="sidebar" />
       <Header className="header" />
 
-      <div className="main-content">
+      <div className={`main-content ${isLightMode ? "" : "dark"}`}>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />

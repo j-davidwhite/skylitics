@@ -133,3 +133,16 @@
 .dark .search-bar input::placeholder {
   color: var(--text-light);
 }
+
+/* Targeting placeholder text for MUI InputBase and Input */
+.MuiInputBase-input::placeholder,
+.MuiInput-input::placeholder {
+  color: var(--text-dark) !important; /* Use your desired color here */
+  opacity: 1; /* Ensures placeholder is fully visible (some browsers reduce opacity) */
+}
+
+/* Targeting specific instance with a long class chain */
+.css-1yrc8ca-MuiInputBase-input-MuiInput-input::placeholder {
+  color: var(--text-dark) !important;
+  opacity: 1;
+}

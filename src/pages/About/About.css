@@ -9,11 +9,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: calc(100% - 1rem);
   align-items: center;
   color: var(--text-light);
   padding: 1rem;
+  gap: 4rem;
 }
+
 h2 {
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
@@ -65,6 +67,12 @@ h2 {
   gap: 1.3rem;
   border: var(--border-light);
   border-radius: 10px;
+}
+.profile.dark {
+  background: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+  color: var(--text-dark);
+  border: var(--border-dark);
 }
 .circle {
   background: #dde1e7;
@@ -137,6 +145,11 @@ h2 {
   box-shadow: var(--selected-light);
   border: 3px solid #e8e8e8;
 }
+.icons > img.dark:hover {
+  background: var(--bg-dark);
+  box-shadow: var(--selected-dark);
+  border: 3px solid #212121;
+}
 .team-name {
   width: 18rem;
   height: auto;
@@ -152,6 +165,11 @@ h2 {
   background-color: var(--bg-light);
   border-radius: 10px;
   box-shadow: var(--deselected-light);
+  margin-bottom: 2rem;
+}
+.line.dark {
+  background-color: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
 }
 
 /*================================== KEY FEATURES ================================== */
@@ -172,10 +190,15 @@ h2 {
   border: var(--border-light);
   border-radius: 10px;
   width: 60rem;
-  height: 12rem;
+  height: 11rem;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
+}
+.features-info.dark {
+  background-color: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+  border: var(--border-dark);
 }
 .feature {
   display: flex;
@@ -198,4 +221,7 @@ h2 {
   height: 5rem;
   box-shadow: inset 5px 5px 9px #bebebe, inset -5px -5px 9px #ffffff;
   border-radius: 100px;
+}
+.icon-container.dark {
+  box-shadow: inset 5px 5px 9px #15140e, inset -5px -5px 9px #2b281c;
 }

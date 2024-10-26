@@ -11,9 +11,9 @@ import analytics from "../../assets/icons8-analytics.png";
 import weather from "../../assets/icons8-weather.png";
 import flight from "../../assets/icons8-flight.png";
 
-const About = () => {
+const About = ({ isLightMode }) => {
   return (
-    <div className="about">
+    <div className={`about ${isLightMode ? "" : "dark"}`}>
       <div className="project-container">
         <h2>About Our Project</h2>
         <div className="project-info">

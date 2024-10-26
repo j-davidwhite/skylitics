@@ -4,9 +4,30 @@
   align-items: center;
   background: var(--bg-light);
   box-shadow: var(--deselected-light);
-  width: 80rem;
-  height: 10rem;
+  width: 65rem;
+  height: 14rem;
   border-radius: 10px;
+  padding: 2rem;
+}
+.flight-planner.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  box-shadow: var(--deselected-dark);
+}
+.flight-planner-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.flight-planner-form.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  box-shadow: var(--deselected-dark);
 }
 .flight-planner-left {
   display: flex;
@@ -15,25 +36,16 @@
   align-items: center;
   gap: 1.5rem;
 }
-.flight-planner-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
+
 .departure-select {
-  width: 14rem;
+  width: 12rem;
 }
 .trip-details {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 40rem;
+  width: 35rem;
   gap: 1rem;
 }
 .PlaneIcon {
@@ -41,5 +53,62 @@
   height: auto;
 }
 .destination-select {
-  width: 14rem;
+  width: 12rem;
+}
+
+/* Target all relevant MUI components globally */
+.flight-planner.dark .MuiFormControl-root,
+.flight-planner.dark .MuiTextField-root,
+.flight-planner.dark .MuiInputBase-root,
+.flight-planner.dark .MuiSelect-select,
+.flight-planner.dark .MuiInputBase-input,
+.flight-planner.dark .MuiFormLabel-root,
+.flight-planner.dark .MuiInputAdornment-root,
+.flight-planner.dark .MuiFormHelperText-root {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+  border-color: var(
+    --border-dark
+  ) !important; /* Unified border color (white in dark mode) */
+}
+
+/* Disabled state */
+.flight-planner.dark .Mui-disabled {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Specific rule for adorned inputs (icon color handling) */
+.flight-planner.dark .MuiInputBase-inputAdornedStart {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Additional handling for select dropdown with long class chain */
+.flight-planner.dark
+  .MuiSelect-select.MuiSelect-standard.Mui-disabled.MuiInputBase-input.MuiInput-input.Mui-disabled.MuiInputBase-inputAdornedStart {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Target departure-select and destination-select with specific border styling */
+.flight-planner.dark .departure-select,
+.flight-planner.dark .destination-select,
+.flight-planner.dark .MuiTextField-root {
+  border-bottom: 1px solid var(--border-dark) !important; /* White underline for text fields */
+}
+
+/* Force underline for the date picker */
+.flight-planner.dark .MuiInput-underline:before {
+  border-bottom: 1px solid var(--border-dark) !important; /* White underline for DatePicker */
+}
+
+/* Handling icon color in departure-select and destination-select */
+.flight-planner.dark .departure-select .MuiInputAdornment-root,
+.flight-planner.dark .destination-select .MuiInputAdornment-root {
+  color: var(--text-dark) !important; /* Dark mode icon color */
+}
+.flight-planner.dark .MuiInput-underline:before,
+.flight-planner.dark .MuiSelect-select::before {
+  border-bottom: 1px solid var(--text-dark) !important; /* White underline */
 }

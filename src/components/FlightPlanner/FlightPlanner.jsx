@@ -11,7 +11,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 
-const FlightPlanner = () => {
+const FlightPlanner = ({ isLightMode }) => {
   const [destinationCity, setDestinationCity] = useState("");
   const [selectedDate, setSelectedDate] = useState(dayjs());
 
@@ -29,7 +29,7 @@ const FlightPlanner = () => {
   };
 
   return (
-    <div className="flight-planner">
+    <div className={`flight-planner ${isLightMode ? "" : "dark"}`}>
       <form className="flight-planner-form" noValidate autoComplete="off">
         <div className="flight-planner-left">
           <TextField
@@ -37,10 +37,10 @@ const FlightPlanner = () => {
             id="standard-select-city"
             select
             label="Departure City"
-            value="Melbourne" // Default locked value
+            value="Melbourne"
             helperText="This field is locked"
             variant="standard"
-            disabled // Disable the select field
+            disabled
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -63,6 +63,7 @@ const FlightPlanner = () => {
             />
           </LocalizationProvider>
         </div>
+
         <div className="flight-planner-middle">
           <div className="trip-details">
             <h2>MLB</h2>------------------
@@ -71,14 +72,15 @@ const FlightPlanner = () => {
             <h2>{getDestinationAcronym(destinationCity)}</h2>
           </div>
         </div>
+
         <div className="flight-planner-right">
           <TextField
             className="destination-select"
             id="standard-select-destination"
             select
             label="Destination City"
-            value={destinationCity} // Track selected city with state
-            onChange={(e) => setDestinationCity(e.target.value)} // Handle selection
+            value={destinationCity}
+            onChange={(e) => setDestinationCity(e.target.value)}
             helperText="Select your destination"
             variant="standard"
             InputProps={{
