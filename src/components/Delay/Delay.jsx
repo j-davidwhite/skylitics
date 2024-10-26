@@ -4,46 +4,42 @@ import wind from "../../assets/icons8-wind.png";
 import maxTemp from "../../assets/icons8-maxtemp.png";
 import minTemp from "../../assets/icons8-mintemp.png";
 import delay from "../../assets/icons8-delay.png";
+import { useTheme } from "../ThemeContext";
 import "./Delay.css";
-import {
-  LinearProgress,
-  Box,
-  Typography,
-  Card,
-  CardContent,
-} from "@mui/material";
+import { LinearProgress, Box, Typography, CardContent } from "@mui/material";
 
 // Example data from the Python function
 const exampleDelayData = {
   message: "Moderate risk of delay. Monitor conditions: due to expected rain.",
   data: {
-    rain: 60, // 60% rain level
-    wind_speed: 40, // 40% wind speed level
-    max_temp: 90, // 90% of max temperature threshold
-    min_temp: 20, // 20% of min temperature threshold
-    delay_probability: 70, // 70% probability of delay
+    rain: 60,
+    wind_speed: 40,
+    max_temp: 90,
+    min_temp: 20,
+    delay_probability: 70,
   },
 };
 
 const Delay = () => {
   const [delayData, setDelayData] = useState({});
+  const { isLightMode } = useTheme();
 
   useEffect(() => {
-    // Simulate fetching data from the Python function (or API)
     setDelayData(exampleDelayData.data);
   }, []);
 
   return (
-    <CardContent className="delay">
+    <CardContent className={`delay ${isLightMode ? "light" : "dark"}`}>
       <div className="delay-risk">
         <Typography variant="h6" gutterBottom>
           Delay Risk
         </Typography>
       </div>
+
       {/* Delay Probability */}
       <Box className="delay-probability">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Delay Probability <img src={delay}></img>
+          Delay Probability <img src={delay} alt="Delay Icon" />
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -58,8 +54,8 @@ const Delay = () => {
                   delayData.delay_probability < 40
                     ? "#4caf50" // Green for low risk
                     : delayData.delay_probability < 70
-                    ? "#ffeb4.8b" // Yellow for moderate risk
-                    : "#f444.86", // Red for high risk
+                    ? "#ffeb3b" // Yellow for moderate risk
+                    : "#f44336", // Red for high risk
               },
             }}
           />
@@ -70,7 +66,7 @@ const Delay = () => {
       {/* Rain */}
       <Box className="rain">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Rain <img src={rain}></img>
+          Rain <img src={rain} alt="Rain Icon" />
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -81,7 +77,7 @@ const Delay = () => {
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
               "& .MuiLinearProgress-bar": {
-                backgroundColor: "#2196f4.8", // Blue for rain
+                backgroundColor: "#2196f3", // Blue for rain
               },
             }}
           />
@@ -92,7 +88,7 @@ const Delay = () => {
       {/* Wind Speed */}
       <Box className="wind">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Wind Speed <img src={wind}></img>
+          Wind Speed <img src={wind} alt="Wind Icon" />
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -114,7 +110,7 @@ const Delay = () => {
       {/* Max Temperature */}
       <Box className="max-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Max Temperature <img src={maxTemp}></img>
+          Max Temperature <img src={maxTemp} alt="Max Temperature Icon" />
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -125,7 +121,7 @@ const Delay = () => {
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
               "& .MuiLinearProgress-bar": {
-                backgroundColor: "#f444.86", // Red for high temperatures
+                backgroundColor: "#ff5722", // Orange for high temperatures
               },
             }}
           />
@@ -136,7 +132,7 @@ const Delay = () => {
       {/* Min Temperature */}
       <Box className="min-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Min Temperature <img src={minTemp}></img>
+          Min Temperature <img src={minTemp} alt="Min Temperature Icon" />
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -147,7 +143,7 @@ const Delay = () => {
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
               "& .MuiLinearProgress-bar": {
-                backgroundColor: "#2196f4.8", // Blue for low temperatures
+                backgroundColor: "#00bcd4", // Cyan for low temperatures
               },
             }}
           />

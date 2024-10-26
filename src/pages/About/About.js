@@ -1,17 +1,21 @@
 import React from "react";
 import "./About.css";
+import { useTheme } from "../../components/ThemeContext";
 import photo1 from "../../assets/joshua.memoji.png";
 import photo2 from "../../assets/dheeman.memoji.png";
 import photo3 from "../../assets/aaron.memoji.png";
 import team_name from "../../assets/oreo97.png";
 import instagram from "../../assets/instagram.png";
 import linkedin from "../../assets/linkedin.png";
-import github from "../../assets/github.png";
+import githubLight from "../../assets/icons8-github-light.png";
+import githubDark from "../../assets/icons8-github-dark.png";
 import analytics from "../../assets/icons8-analytics.png";
 import weather from "../../assets/icons8-weather.png";
 import flight from "../../assets/icons8-flight.png";
 
-const About = ({ isLightMode }) => {
+const About = () => {
+  const { isLightMode } = useTheme();
+
   return (
     <div className={`about ${isLightMode ? "" : "dark"}`}>
       <div className="project-container">
@@ -30,19 +34,31 @@ const About = ({ isLightMode }) => {
         <div className="features-info">
           <div className="feature">
             <div className="icon-container">
-              <img src={flight} alt="Feature 1" className="feature-icon" />
+              <img
+                src={flight}
+                alt="Flight Prediction Feature"
+                className="feature-icon"
+              />
             </div>
             <p>Accurate Delay Predictions</p>
           </div>
           <div className="feature">
             <div className="icon-container">
-              <img src={weather} alt="Feature 2" className="feature-icon" />
+              <img
+                src={weather}
+                alt="Weather Analysis Feature"
+                className="feature-icon"
+              />
             </div>
             <p>Weather Impact Analysis</p>
           </div>
           <div className="feature">
             <div className="icon-container">
-              <img src={analytics} alt="Feature 3" className="feature-icon" />
+              <img
+                src={analytics}
+                alt="Analytics Feature"
+                className="feature-icon"
+              />
             </div>
             <p>Real-Time Data Integration</p>
           </div>
@@ -54,53 +70,58 @@ const About = ({ isLightMode }) => {
         <div className="profile-section">
           <div className="profile">
             <div className="circle">
-              <img className="photo1" src={photo1} alt="" />
+              <img className="photo1" src={photo1} alt="Joshua White Profile" />
             </div>
             <div className="profile-info">
               <div className="name">Joshua White</div>
               <div className="role">Frontend Developer</div>
             </div>
-
             <div className="icons">
-              <img src={instagram} alt=""></img>
-              <img src={github} alt=""></img>
-              <img src={linkedin} alt=""></img>
+              <img src={instagram} alt="Instagram" />
+              <img src={isLightMode ? githubLight : githubDark} alt="GitHub" />
+              <img src={linkedin} alt="LinkedIn" />
             </div>
           </div>
           <div className="profile">
             <div className="circle">
-              <img className="photo2" src={photo2} alt="" />
+              <img
+                className="photo2"
+                src={photo2}
+                alt="Dheeman Thakar Profile"
+              />
             </div>
             <div className="profile-info">
               <div className="name">Dheeman Thakar</div>
               <div className="role">Machine Learning Engineer</div>
             </div>
-
             <div className="icons">
-              <img src={instagram} alt=""></img>
-              <img src={github} alt=""></img>
-              <img src={linkedin} alt=""></img>
+              <img src={instagram} alt="Instagram" />
+              <img src={isLightMode ? githubLight : githubDark} alt="GitHub" />
+              <img src={linkedin} alt="LinkedIn" />
             </div>
           </div>
           <div className="profile">
             <div className="circle">
-              <img className="photo3" src={photo3} alt="" />
+              <img
+                className="photo3"
+                src={photo3}
+                alt="Aaron Hussain Profile"
+              />
             </div>
             <div className="profile-info">
               <div className="name">Aaron Hussain</div>
               <div className="role">Backend Developer</div>
             </div>
-
             <div className="icons">
-              <img src={instagram} alt=""></img>
-              <img src={github} alt=""></img>
-              <img src={linkedin} alt=""></img>
+              <img src={instagram} alt="Instagram" />
+              <img src={isLightMode ? githubLight : githubDark} alt="GitHub" />
+              <img src={linkedin} alt="LinkedIn" />
             </div>
           </div>
         </div>
       </div>
       <div className="team-container">
-        <img src={team_name} alt="" className="team-name"></img>
+        <img src={team_name} alt="Team Logo" className="team-name" />
         <div className="line"></div>
       </div>
     </div>

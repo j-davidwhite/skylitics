@@ -15,7 +15,12 @@
   padding: 1rem;
   gap: 4rem;
 }
-
+.dark .about {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  box-shadow: var(--deselected-dark);
+  border: var(--border-dark);
+}
 h2 {
   font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
@@ -37,6 +42,64 @@ h2 {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
   font-size: 20px;
+}
+
+/*================================== KEY FEATURES ================================== */
+.features-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.features-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  background-color: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  border: var(--border-light);
+  border-radius: 10px;
+  width: 60rem;
+  height: 11rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+.main-content.dark .features-info {
+  background-color: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+  border: var(--border-dark);
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  gap: 1rem;
+}
+.feature-icon {
+  width: 3rem;
+  height: auto;
+  fill: var(--bg-light);
+}
+.main-content.dark .feature-icon {
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  box-shadow: inset 5px 5px 9px #bebebe, inset -5px -5px 9px #ffffff;
+  border-radius: 100px;
+}
+.main-content.dark .icon-container {
+  box-shadow: inset 5px 5px 9px #15140e, inset -5px -5px 9px #2b281c;
 }
 
 /*================================== PROFILE ================================== */
@@ -68,7 +131,7 @@ h2 {
   border: var(--border-light);
   border-radius: 10px;
 }
-.profile.dark {
+.main-content.dark .profile {
   background: var(--bg-dark);
   box-shadow: var(--deselected-dark);
   color: var(--text-dark);
@@ -96,6 +159,14 @@ h2 {
   box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
     inset 5px 5px 9px rgba(94, 104, 121, 0.3);
 }
+.main-content.dark .circle {
+  background: var(--bg-dark);
+  box-sizing: var(--selected-dark);
+}
+.main-content.dark .circle::after {
+  box-sizing: var(--selected-dark);
+}
+
 .photo2 {
   width: 9rem;
   height: auto;
@@ -167,61 +238,7 @@ h2 {
   box-shadow: var(--deselected-light);
   margin-bottom: 2rem;
 }
-.line.dark {
+.main-content.dark .line {
   background-color: var(--bg-dark);
   box-shadow: var(--deselected-dark);
-}
-
-/*================================== KEY FEATURES ================================== */
-.features-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-.features-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8rem;
-  background-color: var(--bg-light);
-  box-shadow: var(--deselected-light);
-  border: var(--border-light);
-  border-radius: 10px;
-  width: 60rem;
-  height: 11rem;
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
-.features-info.dark {
-  background-color: var(--bg-dark);
-  box-shadow: var(--deselected-dark);
-  border: var(--border-dark);
-}
-.feature {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  gap: 1rem;
-}
-.feature-icon {
-  width: 3rem;
-  height: auto;
-}
-.icon-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 5rem;
-  height: 5rem;
-  box-shadow: inset 5px 5px 9px #bebebe, inset -5px -5px 9px #ffffff;
-  border-radius: 100px;
-}
-.icon-container.dark {
-  box-shadow: inset 5px 5px 9px #15140e, inset -5px -5px 9px #2b281c;
 }

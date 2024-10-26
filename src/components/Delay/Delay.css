@@ -8,9 +8,18 @@
   max-height: 21rem;
   background-color: var(--bg-light);
   box-shadow: var(--deselected-light);
-  border: var(--border-light);
   border-radius: 10px;
 }
+
+.main-content.dark .delay {
+  background-color: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+  color: var(--text-dark);
+}
+.main-content.dark .delay .MuiTypography-root {
+  color: var(--text-dark);
+}
+
 .delay-probability {
   display: flex;
   justify-content: center;
@@ -102,4 +111,8 @@ img {
 .MuiLinearProgress-root {
   background-color: var(--bg-light);
   box-shadow: var(--selected-light);
+}
+.dark .MuiLinearProgress-root {
+  background-color: var(--bg-dark);
+  box-shadow: var(--selected-dark);
 }

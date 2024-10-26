@@ -11,8 +11,8 @@ import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import logo from "../../assets/travel.png";
 
 function Sidebar() {
-  const [selected, setSelected] = useState(0); // Track selected item, default to first element
-  const { isLightMode, toggleTheme } = useTheme(); // Use the theme context
+  const [selected, setSelected] = useState(0);
+  const { isLightMode, toggleTheme } = useTheme();
 
   // Define sidebar items with text, corresponding icons, and paths
   const sidebarItems = [

@@ -18,7 +18,7 @@ const SearchBar = () => {
           </InputAdornment>
         ),
         classes: {
-          notchedOutline: "no-outline", // Add custom class to remove outline
+          notchedOutline: "no-outline",
         },
       }}
     />

@@ -1,0 +1,46 @@
+.Departure {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  padding-left: 2.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 30rem;
+}
+.main-content.dark .Departure {
+  background: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+}
+.departure-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.rain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wind {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.departure-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;
+}

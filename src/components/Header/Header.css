@@ -41,8 +41,7 @@
   border: 3px solid var(--bg-light) !important;
   width: 30rem;
 }
-
-.header.dark {
+.dark .header {
   background-color: var(--bg-dark);
   color: var(--text-dark);
   box-shadow: var(--deselected-dark);
@@ -51,12 +50,11 @@
   background: var(--bg-light);
   box-shadow: var(--deselected-light);
   border-radius: 100rem;
-  min-width: 3rem; /* Ensure it's wide enough */
+  min-width: 3rem;
   min-height: 3rem;
   padding: 0.6rem;
   border: var(--border-light);
 }
-
 .notifications-container .notifications:hover {
   background: var(--bg-light);
   box-shadow: var(--selected-light);
@@ -74,13 +72,13 @@
   background: var(--bg-light);
   box-shadow: var(--deselected-light);
   border-radius: 100rem;
-  min-width: 3rem; /* Ensure it's wide enough */
+  min-width: 3rem;
   min-height: 3rem;
   padding: 0.6rem;
   border: var(--border-light);
 }
 .settings-container.settings {
-  min-width: 3rem; /* Ensure it's wide enough */
+  min-width: 3rem;
   min-height: 3rem;
 }
 
@@ -99,6 +97,7 @@
 .dark .notifications {
   background: var(--bg-dark);
   box-shadow: var(--deselected-dark);
+  border: var(--border-dark);
 }
 .dark .notifications:hover {
   background: var(--bg-dark);
@@ -109,6 +108,7 @@
 .dark .settings {
   background: var(--bg-dark);
   box-shadow: var(--deselected-dark);
+  border: var(--border-dark);
 }
 .dark .settings:hover {
   background: var(--bg-dark);
@@ -130,19 +130,7 @@
   color: var(--text-light) !important;
 }
 
-.dark .search-bar input::placeholder {
-  color: var(--text-light);
-}
-
-/* Targeting placeholder text for MUI InputBase and Input */
-.MuiInputBase-input::placeholder,
-.MuiInput-input::placeholder {
-  color: var(--text-dark) !important; /* Use your desired color here */
-  opacity: 1; /* Ensures placeholder is fully visible (some browsers reduce opacity) */
-}
-
-/* Targeting specific instance with a long class chain */
-.css-1yrc8ca-MuiInputBase-input-MuiInput-input::placeholder {
+.dark .css-1yrc8ca-MuiInputBase-input-MuiInput-input::placeholder {
   color: var(--text-dark) !important;
-  opacity: 1;
+  opacity: 100px;
 }
