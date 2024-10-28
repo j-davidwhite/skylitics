@@ -4,7 +4,8 @@ import { useTheme } from "../../components/ThemeContext";
 import photo1 from "../../assets/joshua.memoji.png";
 import photo2 from "../../assets/dheeman.memoji.png";
 import photo3 from "../../assets/aaron.memoji.png";
-import team_name from "../../assets/oreo97.png";
+import oreoLight from "../../assets/oreo-light.png";
+import oreoDark from "../../assets/oreo-dark.png";
 import instagram from "../../assets/instagram.png";
 import linkedin from "../../assets/linkedin.png";
 import githubLight from "../../assets/icons8-github-light.png";
@@ -12,6 +13,9 @@ import githubDark from "../../assets/icons8-github-dark.png";
 import analytics from "../../assets/icons8-analytics.png";
 import weather from "../../assets/icons8-weather.png";
 import flight from "../../assets/icons8-flight.png";
+import analyticsDark from "../../assets/icons8-analytics-dark.png";
+import weatherDark from "../../assets/icons8-weather-dark.png";
+import flightDark from "../../assets/icons8-flight-dark.png";
 
 const About = () => {
   const { isLightMode } = useTheme();
@@ -35,7 +39,7 @@ const About = () => {
           <div className="feature">
             <div className="icon-container">
               <img
-                src={flight}
+                src={isLightMode ? flight : flightDark}
                 alt="Flight Prediction Feature"
                 className="feature-icon"
               />
@@ -45,7 +49,7 @@ const About = () => {
           <div className="feature">
             <div className="icon-container">
               <img
-                src={weather}
+                src={isLightMode ? weather : weatherDark}
                 alt="Weather Analysis Feature"
                 className="feature-icon"
               />
@@ -55,7 +59,7 @@ const About = () => {
           <div className="feature">
             <div className="icon-container">
               <img
-                src={analytics}
+                src={isLightMode ? analytics : analyticsDark}
                 alt="Analytics Feature"
                 className="feature-icon"
               />
@@ -121,7 +125,11 @@ const About = () => {
         </div>
       </div>
       <div className="team-container">
-        <img src={team_name} alt="Team Logo" className="team-name" />
+        <img
+          src={isLightMode ? oreoLight : oreoDark}
+          alt="Team Logo"
+          className="team-name"
+        />
         <div className="line"></div>
       </div>
     </div>

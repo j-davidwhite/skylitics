@@ -39,7 +39,7 @@ const Delay = () => {
       {/* Delay Probability */}
       <Box className="delay-probability">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Delay Probability <img src={delay} alt="Delay Icon" />
+          Delay Probability
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress

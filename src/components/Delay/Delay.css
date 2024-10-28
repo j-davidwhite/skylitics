@@ -32,7 +32,7 @@
 .delay-risk {
   display: flex;
   justify-content: center;
-  justify-content: center;
+  align-items: center;
 }
 .delay .MuiTypography-root {
   font-family: "Nunito Sans", sans-serif;

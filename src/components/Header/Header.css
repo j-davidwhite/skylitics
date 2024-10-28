@@ -20,6 +20,11 @@
 }
 .dashboard {
   width: 8rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.3rem;
 }
 
 .header-right {

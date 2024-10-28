@@ -6,6 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FlightTakeoffSharpIcon from "@mui/icons-material/FlightTakeoffSharp";
 import FlightLandSharpIcon from "@mui/icons-material/FlightLandSharp";
 import PlaneIcon from "../../assets/worldwide.png";
+import PlaneIconDark from "../../assets/worldwide1.png";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -67,7 +68,10 @@ const FlightPlanner = ({ isLightMode }) => {
         <div className="flight-planner-middle">
           <div className="trip-details">
             <h2>MLB</h2>------------------
-            <img src={PlaneIcon} className="PlaneIcon" />
+            <img
+              src={isLightMode ? PlaneIcon : PlaneIconDark}
+              className="PlaneIcon"
+            />
             ------------------
             <h2>{getDestinationAcronym(destinationCity)}</h2>
           </div>
