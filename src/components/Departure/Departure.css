@@ -13,6 +13,11 @@
   background: var(--bg-dark);
   box-shadow: var(--deselected-dark);
 }
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .departure-left {
   display: flex;
   flex-direction: column;
@@ -20,6 +25,13 @@
   align-items: flex-start;
   gap: 2rem;
 }
+.maxTemp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .rain {
   display: flex;
   justify-content: center;
@@ -29,6 +41,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.plane-ticket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.05rem;
+  font-size: 2.5rem;
 }
 .departure-right {
   display: flex;

@@ -7,13 +7,20 @@ import umbrellaLight from "../../assets/icons8-umbrella-light.png";
 import umbrellaDark from "../../assets/icons8-umbrella-dark.png";
 import windLight from "../../assets/icons8-wind-light.png";
 import windDark from "../../assets/icons8-wind-dark.png";
+import sunLight from "../../assets/icons8-sun-light.png";
+import sunDark from "../../assets/icons8-sun-dark.png";
 
-const Departure = () => {
+const Departure = ({ prediction, destinationCity }) => {
   const { isLightMode } = useTheme();
 
   return (
     <div className="Departure">
       <div className="departure-left">
+        <div className="maxTemp">
+          <img src={isLightMode ? sunLight : sunDark} />| &nbsp;&nbsp;
+          {prediction ? prediction["maxTempMelbourne"] : "-"}
+          &deg;C
+        </div>
         <div className="rain">
           <img
             src={isLightMode ? umbrellaLight : umbrellaDark}
@@ -32,7 +39,7 @@ const Departure = () => {
           <div>Melbourne</div>
           <KeyboardArrowDownSharpIcon />
         </div>
-        <div>25&deg;C</div>
+        <div className="plane-ticket">$48.50</div>
       </div>
     </div>
   );

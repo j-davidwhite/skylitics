@@ -55,6 +55,13 @@
 .destination-select {
   width: 12rem;
 }
+.flight-planner-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
 
 /* Target all relevant MUI components globally */
 .flight-planner.dark .MuiFormControl-root,
@@ -111,4 +118,10 @@
 .flight-planner.dark .MuiInput-underline:before,
 .flight-planner.dark .MuiSelect-select::before {
   border-bottom: 1px solid var(--text-dark) !important; /* White underline */
+}
+.predict {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

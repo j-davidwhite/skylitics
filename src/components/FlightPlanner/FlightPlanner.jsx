@@ -11,10 +11,26 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+import axios from "axios";
 
-const FlightPlanner = ({ isLightMode }) => {
+const FlightPlanner = ({ isLightMode, onPredict }) => {
   const [destinationCity, setDestinationCity] = useState("");
   const [selectedDate, setSelectedDate] = useState(dayjs());
+
+  const handlePredict = async () => {
+    const destination = getDestinationAcronym(destinationCity);
+    const date = selectedDate.format("YYYY-MM-DD");
+    console.log("Button clicked, making API request...");
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/predict", {
+        destination,
+        date,
+      });
+      onPredict(response.data, destination);
+    } catch (error) {
+      console.error("Error fetching prediction:", error);
+    }
+  };
 
   const getDestinationAcronym = (city) => {
     switch (city) {
@@ -25,7 +41,7 @@ const FlightPlanner = ({ isLightMode }) => {
       case "Sydney":
         return "SYD";
       default:
-        return "Destination";
+        return "MLB";
     }
   };
 
@@ -71,6 +87,7 @@ const FlightPlanner = ({ isLightMode }) => {
             <img
               src={isLightMode ? PlaneIcon : PlaneIconDark}
               className="PlaneIcon"
+              alt="Plane Icon"
             />
             ------------------
             <h2>{getDestinationAcronym(destinationCity)}</h2>
@@ -99,6 +116,11 @@ const FlightPlanner = ({ isLightMode }) => {
             <MenuItem value="Perth">Perth</MenuItem>
             <MenuItem value="Sydney">Sydney</MenuItem>
           </TextField>
+          <div className="predict">
+            <button type="button" onClick={handlePredict}>
+              Get Prediction
+            </button>
+          </div>
         </div>
       </form>
     </div>

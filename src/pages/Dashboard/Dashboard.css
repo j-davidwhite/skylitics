@@ -1,11 +1,11 @@
 .Dashboard {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal-sized columns */
-  grid-template-rows: auto auto auto; /* Three rows: auto-sized */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
-    "flight flight" /* Flight takes up the entire first row */
-    "graph delay" /* Graph and Delay share the second row */
-    "departure destination"; /* Departure and Destination share the third row */
+    "flight flight"
+    "graph delay"
+    "departure destination";
   gap: 2rem;
   padding: 1%;
   height: 100vh;
