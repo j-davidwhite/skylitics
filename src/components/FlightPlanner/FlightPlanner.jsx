@@ -65,7 +65,7 @@ const FlightPlanner = ({
       case "Sydney":
         return "SYD";
       default:
-        return "MLB";
+        return "Destination";
     }
   };
 
@@ -78,7 +78,7 @@ const FlightPlanner = ({
       case "Sydney":
         return "PriceToSydney";
       default:
-        return "PriceToSydney"; // Default to a valid city if necessary
+        return "PriceToSydney";
     }
   };
 
