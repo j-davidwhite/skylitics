@@ -26,11 +26,11 @@ const Departure = ({ prediction, destinationCity }) => {
             src={isLightMode ? umbrellaLight : umbrellaDark}
             alt="Umbrella Icon"
           />
-          |&nbsp;&nbsp; Rain 1mm
+          |&nbsp;&nbsp; {prediction ? prediction["rainMelbourne"] : "-"}mm
         </div>
         <div className="wind">
           <img src={isLightMode ? windLight : windDark} alt="Wind Icon" />|
-          &nbsp;&nbsp; Wind 15k/m
+          &nbsp;&nbsp; {prediction ? prediction["windSpeedMelbourne"] : "-"}k/m
         </div>
       </div>
       <div className="departure-right">

@@ -2,6 +2,10 @@ import pandas as pd
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+import os
+
+# Ensure the models directory exists
+os.makedirs('models', exist_ok=True)
 
 def train_model_for_city(file_path, model_filename):
     print(f"Loading data from {file_path}")
@@ -48,7 +52,7 @@ def train_model_for_city(file_path, model_filename):
         models[target] = model
 
     for target, model in models.items():
-        joblib.dump(model, f'{model_filename}_{target}.pkl')
+        joblib.dump(model, f'models/{model_filename}_{target}.pkl')
 
     print(f"Models saved for {model_filename}")
 

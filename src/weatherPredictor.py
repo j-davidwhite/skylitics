@@ -7,10 +7,10 @@ app = Flask(__name__)
 CORS(app)
 
 models = {
-    'MLB': {target: joblib.load(f'modelMLB_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']},
-    'BNE': {target: joblib.load(f'modelBNE_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']},
-    'PER': {target: joblib.load(f'modelPER_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']},
-    'SYD': {target: joblib.load(f'modelSYD_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']}
+    'MLB': {target: joblib.load(f'models/modelMLB_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']},
+    'BNE': {target: joblib.load(f'models/modelBNE_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']},
+    'PER': {target: joblib.load(f'models/modelPER_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']},
+    'SYD': {target: joblib.load(f'models/modelSYD_{target}.pkl') for target in ['TempMax', 'TempMin', 'Rain', 'WindSpeedMax']}
 }
 
 def prepare_input(date):
