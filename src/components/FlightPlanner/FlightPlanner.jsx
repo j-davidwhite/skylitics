@@ -13,13 +13,17 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import axios from "axios";
 
-const FlightPlanner = ({ isLightMode, onPredict }) => {
-  const [destinationCity, setDestinationCity] = useState("");
+const FlightPlanner = ({
+  isLightMode,
+  onPredict,
+  destinationCity,
+  setDestinationCity,
+}) => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
 
   const handlePredict = async () => {
-    const destinationWeatherKey = getDestinationWeatherKey(destinationCity); // Key for weather prediction
-    const destinationPriceKey = getDestinationPriceKey(destinationCity); // Key for price prediction
+    const destinationWeatherKey = getDestinationWeatherKey(destinationCity);
+    const destinationPriceKey = getDestinationPriceKey(destinationCity);
     const date = selectedDate.format("YYYY-MM-DD");
 
     try {
@@ -116,7 +120,8 @@ const FlightPlanner = ({ isLightMode, onPredict }) => {
 
         <div className="flight-planner-middle">
           <div className="trip-details">
-            <h2>MLB</h2>------------------
+            <h2>MLB</h2>
+            ------------------
             <img
               src={isLightMode ? PlaneIcon : PlaneIconDark}
               className="PlaneIcon"
@@ -124,7 +129,6 @@ const FlightPlanner = ({ isLightMode, onPredict }) => {
             />
             ------------------
             <h2>{getDestinationWeatherKey(destinationCity)}</h2>{" "}
-            {/* Updated to use getDestinationWeatherKey */}
           </div>
         </div>
 

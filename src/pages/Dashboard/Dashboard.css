@@ -4,7 +4,7 @@
   grid-template-rows: auto auto auto;
   grid-template-areas:
     "flight flight"
-    "graph delay"
+    "cost delay"
     "departure destination";
   gap: 2rem;
   padding: 1%;
@@ -21,8 +21,8 @@
   background: var(--bg-light);
 }
 
-.graph {
-  grid-area: graph;
+.cost {
+  grid-area: cost;
 }
 
 .departure {

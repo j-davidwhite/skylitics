@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./Dashboard.css";
 import Delay from "../../components/Delay/Delay";
 import FlightPlanner from "../../components/FlightPlanner/FlightPlanner";
-import Graph from "../../components/Graph/Graph";
+import CostAnalysis from "../../components/CostAnalysis/CostAnalysis";
 import Departure from "../../components/Departure/Departure";
 import Destination from "../../components/Destination/Destination";
+import BarChart from "../../components/BarChart/BarChart";
+import PieChart from "../../components/PieChart/PieChart";
 import { useTheme } from "../../components/ThemeContext";
 
 const Dashboard = () => {
@@ -20,16 +22,24 @@ const Dashboard = () => {
 
   return (
     <div className={`Dashboard ${isLightMode ? "" : "dark"}`}>
-      <FlightPlanner isLightMode={isLightMode} onPredict={handlePrediction} />
-      <Graph isLightMode={isLightMode} />
+      <FlightPlanner
+        isLightMode={isLightMode}
+        onPredict={handlePrediction}
+        destinationCity={destinationCity}
+        setDestinationCity={setDestinationCity}
+      />
+      <CostAnalysis
+        isLightMode={isLightMode}
+        destinationCity={destinationCity}
+        prediction={prediction}
+      />
       <Delay isLightMode={isLightMode} />
-
-      <Departure
+      <Departure isLightMode={isLightMode} prediction={prediction} />
+      <Destination
         isLightMode={isLightMode}
         prediction={prediction}
         destinationCity={destinationCity}
       />
-      <Destination isLightMode={isLightMode} />
     </div>
   );
 };

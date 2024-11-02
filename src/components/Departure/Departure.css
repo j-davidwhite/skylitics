@@ -25,12 +25,6 @@
   align-items: flex-start;
   gap: 2rem;
 }
-.maxTemp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
 
 .rain {
   display: flex;
@@ -62,4 +56,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.3rem;
+}
+.maxTemp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 40px;
 }

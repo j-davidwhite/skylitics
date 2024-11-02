@@ -16,11 +16,6 @@ const Departure = ({ prediction }) => {
   return (
     <div className="Departure">
       <div className="departure-left">
-        <div className="maxTemp">
-          <img src={isLightMode ? sunLight : sunDark} alt="Sun Icon" />|
-          &nbsp;&nbsp;
-          {prediction ? prediction["maxTempMelbourne"] : "-"}&deg;C
-        </div>
         <div className="rain">
           <img
             src={isLightMode ? umbrellaLight : umbrellaDark}
@@ -40,8 +35,9 @@ const Departure = ({ prediction }) => {
           <div>Melbourne</div>
           <KeyboardArrowDownSharpIcon />
         </div>
-        <div className="plane-ticket">
-          ${prediction ? prediction["priceMelbourne"] : "-"}
+        <div className="maxTemp">
+          &nbsp;&nbsp;
+          {prediction ? prediction["maxTempMelbourne"] : "-"}&deg;C
         </div>
       </div>
     </div>

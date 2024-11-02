@@ -1,0 +1,66 @@
+.destination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  padding-left: 2.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 30rem;
+}
+.main-content.dark .destination {
+  background: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.destination-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.rain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wind {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plane-ticket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.05rem;
+  font-size: 2.5rem;
+}
+.destination-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;
+}
+.maxTemp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 40px;
+}

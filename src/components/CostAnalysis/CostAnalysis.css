@@ -1,0 +1,62 @@
+.cost-analysis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  font-family: "Nunito Sans", sans-serif;
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  padding-left: 2.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 30rem;
+}
+.main-content.dark .cost-analysis {
+  background: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+}
+.container-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  font-size: 22px;
+  font-weight: 600;
+}
+.container-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.virgin-logo {
+  height: 4rem;
+  width: auto;
+}
+.bottom-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+.virgin-australia {
+  font-size: 20px;
+}
+.flight-code {
+  color: #71c879;
+}
+.bottom-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+.price-prediction {
+  font-size: 20px;
+}
+.price {
+}
