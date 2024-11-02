@@ -16,17 +16,16 @@ function PieChart() {
   useEffect(() => {
     const svg = d3.select(svgRef.current);
     const width = 500;
-    const height = 500;
-    const radius = Math.min(width, height) / 2;
-    const color = d3.scaleOrdinal(["#4daf4a", "#377eb8"]);
+    const height = 300;
+    const radius = Math.min(width, height) / 2 - 20;
 
-    svg.selectAll("*").remove(); // Clear any existing content in the SVG
+    svg.selectAll("*").remove();
 
     const g = svg
       .attr("width", width)
       .attr("height", height)
       .append("g")
-      .attr("transform", `translate(${width / 2}, ${height / 2})`); // Corrected here
+      .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
     const pie = d3.pie().value((d) => d.value);
     const arc = d3.arc().innerRadius(0).outerRadius(radius);
@@ -46,7 +45,12 @@ function PieChart() {
       .attr("class", "arc")
       .append("path")
       .attr("d", arc)
-      .attr("fill", (d) => color(d.data.label))
+      .attr("class", (d) =>
+        d.data.label === "Average Temperature (°C)" ? "temperature" : "rainfall"
+      )
+      .attr("fill", (d) =>
+        d.data.label === "Average Temperature (°C)" ? "#fdd31d" : "#0f94ff"
+      )
       .transition()
       .ease(d3.easeBackOut)
       .duration(1000)
@@ -59,15 +63,15 @@ function PieChart() {
       .data(pie(data))
       .enter()
       .append("text")
-      .attr("transform", (d) => `translate(${arc.centroid(d)})`) // Corrected here
+      .attr("transform", (d) => `translate(${arc.centroid(d)})`)
       .attr("text-anchor", "middle")
-      .attr("font-size", "14px")
+      .attr("font-size", "12px")
       .attr("fill", "white")
-      .text((d) => `${d.data.label}: ${d.data.value}`); // Corrected here
+      .text((d) => `${d.data.label}: ${d.data.value}`);
   }, [year]);
 
   return (
-    <div style={{ marginBottom: "40px" }} className="pie-chart">
+    <div className="pie-chart">
       <h2>Weather Breakdown by Year (Temperature vs. Rainfall)</h2>
       <label>
         Select Year:
@@ -79,6 +83,23 @@ function PieChart() {
         </select>
       </label>
       <svg ref={svgRef}></svg>
+
+      <div className="legend">
+        <div className="legend-item">
+          <span
+            className="legend-color"
+            style={{ backgroundColor: "#fdd31d" }}
+          ></span>
+          <span>Average Temperature (°C)</span>
+        </div>
+        <div className="legend-item">
+          <span
+            className="legend-color"
+            style={{ backgroundColor: "#0f94ff" }}
+          ></span>
+          <span>Average Rainfall (mm)</span>
+        </div>
+      </div>
     </div>
   );
 }

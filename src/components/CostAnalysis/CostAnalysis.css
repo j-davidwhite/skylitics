@@ -10,7 +10,8 @@
   padding-left: 2.5rem;
   padding: 1rem;
   border-radius: 10px;
-  width: 30rem;
+  width: 100%;
+  margin: 0 auto;
 }
 .main-content.dark .cost-analysis {
   background: var(--bg-dark);

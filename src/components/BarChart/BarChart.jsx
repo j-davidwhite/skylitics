@@ -22,9 +22,9 @@ function BarChart() {
     );
 
     const svg = d3.select(svgRef.current);
-    const width = 900;
-    const height = 550;
-    const padding = 80;
+    const width = 500;
+    const height = 300;
+    const padding = 40;
 
     svg.selectAll("*").remove();
 
@@ -63,23 +63,6 @@ function BarChart() {
       .call(d3.axisLeft(yScale));
 
     svg
-      .append("text")
-      .attr("class", "axis-label")
-      .attr("x", width / 2)
-      .attr("y", height - 20)
-      .style("text-anchor", "middle")
-      .text("Day of the Week");
-
-    svg
-      .append("text")
-      .attr("class", "axis-label")
-      .attr("x", -height / 2)
-      .attr("y", 20)
-      .attr("transform", "rotate(-90)")
-      .style("text-anchor", "middle")
-      .text("Average Flight Price (USD)");
-
-    svg
       .selectAll("rect")
       .data(sortedData)
       .enter()
@@ -106,7 +89,7 @@ function BarChart() {
       <h2>Average Flight Prices per Day</h2>
       <button onClick={() => setSortBy("price")}>Sort by Price</button>
       <button onClick={() => setSortBy("day")}>Sort by Day</button>
-      <svg ref={svgRef} width={900} height={550}></svg>
+      <svg ref={svgRef} width={500} height={300}></svg>
     </div>
   );
 }

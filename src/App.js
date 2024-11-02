@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Analytics from "./pages/Analytics/Analytics";
 import About from "./pages/About/About";
+import Support from "./pages/Support/Support";
 
 function AppContent() {
   const { isLightMode } = useTheme();
@@ -20,6 +21,7 @@ function AppContent() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/about" element={<About />} />
+          <Route path="/support" element={<Support />} />
         </Routes>
       </div>
     </div>

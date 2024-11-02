@@ -6,6 +6,10 @@
 
 html {
   font-size: calc(1vw + 2px);
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .App {

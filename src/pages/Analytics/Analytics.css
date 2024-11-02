@@ -1,0 +1,60 @@
+.analytics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "bar pie"
+    "bar-info pie-info"
+    "cost delay"
+    "cost-info delay-info"
+    "departure destination"
+    "departure-info destination-info";
+  gap: 2rem;
+  padding: 1%;
+  height: 100vh;
+  width: auto;
+  overflow-y: auto;
+  align-items: start;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.bar {
+  grid-area: flight;
+}
+
+.pie {
+  grid-area: delay;
+  background: var(--bg-light);
+}
+
+.cost {
+  grid-area: cost;
+}
+
+.departure {
+  grid-area: departure;
+}
+.departure-info {
+  grid-area: departure-info;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.departure-info p {
+  text-align: center;
+}
+
+.destination {
+  grid-area: destination;
+}
+.destination-info {
+  grid-area: destination-info;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.destination-info p {
+  text-align: center;
+}

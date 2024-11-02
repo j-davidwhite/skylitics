@@ -8,6 +8,7 @@
   background-color: var(--bg-light);
   box-shadow: var(--deselected-light);
   border-radius: 10px;
+  margin: 0 auto;
 }
 
 .main-content.dark .delay {

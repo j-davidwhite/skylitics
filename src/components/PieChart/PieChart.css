@@ -1,8 +1,33 @@
 .pie-chart {
-  max-width: 400px;
-  height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-items: center;
   align-items: center;
+  background: var(--bg-light);
+  box-shadow: var(--deselected-light);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.dark .pie-chart {
+  background: var(--bg-dark);
+  box-shadow: var(--deselected-dark);
+}
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  border-radius: 2px;
 }

@@ -5,8 +5,6 @@ import FlightPlanner from "../../components/FlightPlanner/FlightPlanner";
 import CostAnalysis from "../../components/CostAnalysis/CostAnalysis";
 import Departure from "../../components/Departure/Departure";
 import Destination from "../../components/Destination/Destination";
-import BarChart from "../../components/BarChart/BarChart";
-import PieChart from "../../components/PieChart/PieChart";
 import { useTheme } from "../../components/ThemeContext";
 
 const Dashboard = () => {
