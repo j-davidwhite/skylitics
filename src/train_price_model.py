@@ -1,3 +1,4 @@
+
 # Importing necessary libraries
 import pandas as pd
 import numpy as np
@@ -9,7 +10,7 @@ import joblib
 import os
 
 # Define the path for the cleaned dataset
-file_path = '/Users/dheemanthakar/Documents/Assignment2/FlightPrices_Daily.csv'  # Updated path
+file_path = 'data/FlightPrices.csv'  # Updated path
 
 # Load the cleaned dataset from the CSV file
 try:
@@ -103,8 +104,3 @@ for i, (city, model_filename) in enumerate(cities.items()):
     axes[i].set_xlabel('Day of the Week (Encoded)')
     axes[i].set_ylabel('Flight Price')
     axes[i].legend()
-
-# Show the plot
-plt.tight_layout()
-plt.show()
-

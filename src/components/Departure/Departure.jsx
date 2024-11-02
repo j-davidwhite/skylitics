@@ -10,16 +10,16 @@ import windDark from "../../assets/icons8-wind-dark.png";
 import sunLight from "../../assets/icons8-sun-light.png";
 import sunDark from "../../assets/icons8-sun-dark.png";
 
-const Departure = ({ prediction, destinationCity }) => {
+const Departure = ({ prediction }) => {
   const { isLightMode } = useTheme();
 
   return (
     <div className="Departure">
       <div className="departure-left">
         <div className="maxTemp">
-          <img src={isLightMode ? sunLight : sunDark} />| &nbsp;&nbsp;
-          {prediction ? prediction["maxTempMelbourne"] : "-"}
-          &deg;C
+          <img src={isLightMode ? sunLight : sunDark} alt="Sun Icon" />|
+          &nbsp;&nbsp;
+          {prediction ? prediction["maxTempMelbourne"] : "-"}&deg;C
         </div>
         <div className="rain">
           <img
@@ -30,7 +30,8 @@ const Departure = ({ prediction, destinationCity }) => {
         </div>
         <div className="wind">
           <img src={isLightMode ? windLight : windDark} alt="Wind Icon" />|
-          &nbsp;&nbsp; {prediction ? prediction["windSpeedMelbourne"] : "-"}k/m
+          &nbsp;&nbsp;
+          {prediction ? prediction["windSpeedMelbourne"] : "-"}k/m
         </div>
       </div>
       <div className="departure-right">
@@ -39,7 +40,9 @@ const Departure = ({ prediction, destinationCity }) => {
           <div>Melbourne</div>
           <KeyboardArrowDownSharpIcon />
         </div>
-        <div className="plane-ticket">$48.50</div>
+        <div className="plane-ticket">
+          ${prediction ? prediction["priceMelbourne"] : "-"}
+        </div>
       </div>
     </div>
   );

@@ -18,21 +18,41 @@ const FlightPlanner = ({ isLightMode, onPredict }) => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
 
   const handlePredict = async () => {
-    const destination = getDestinationAcronym(destinationCity);
+    const destinationWeatherKey = getDestinationWeatherKey(destinationCity); // Key for weather prediction
+    const destinationPriceKey = getDestinationPriceKey(destinationCity); // Key for price prediction
     const date = selectedDate.format("YYYY-MM-DD");
-    console.log("Button clicked, making API request...");
+
     try {
-      const response = await axios.post("http://127.0.0.1:5000/predict", {
-        destination,
-        date,
-      });
-      onPredict(response.data, destination);
+      // Make requests to both weather and price prediction endpoints
+      const weatherResponse = await axios.post(
+        "http://127.0.0.1:8000/predict_weather",
+        {
+          destination: destinationWeatherKey,
+          date,
+        }
+      );
+
+      const priceResponse = await axios.post(
+        `http://127.0.0.1:8000/predict_price/${destinationPriceKey}`,
+        {
+          day_of_week_encoded: selectedDate.day(),
+        }
+      );
+
+      // Combine both responses for Melbourne weather and price prediction
+      onPredict(
+        {
+          ...weatherResponse.data,
+          priceMelbourne: priceResponse.data.predicted_price.toFixed(2),
+        },
+        destinationCity
+      );
     } catch (error) {
       console.error("Error fetching prediction:", error);
     }
   };
 
-  const getDestinationAcronym = (city) => {
+  const getDestinationWeatherKey = (city) => {
     switch (city) {
       case "Brisbane":
         return "BNE";
@@ -42,6 +62,19 @@ const FlightPlanner = ({ isLightMode, onPredict }) => {
         return "SYD";
       default:
         return "MLB";
+    }
+  };
+
+  const getDestinationPriceKey = (city) => {
+    switch (city) {
+      case "Brisbane":
+        return "PriceToBrisbane";
+      case "Perth":
+        return "PriceToPerth";
+      case "Sydney":
+        return "PriceToSydney";
+      default:
+        return "PriceToSydney"; // Default to a valid city if necessary
     }
   };
 
@@ -90,7 +123,8 @@ const FlightPlanner = ({ isLightMode, onPredict }) => {
               alt="Plane Icon"
             />
             ------------------
-            <h2>{getDestinationAcronym(destinationCity)}</h2>
+            <h2>{getDestinationWeatherKey(destinationCity)}</h2>{" "}
+            {/* Updated to use getDestinationWeatherKey */}
           </div>
         </div>
 
