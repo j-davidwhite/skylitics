@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./FlightPlanner.css";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
@@ -19,40 +19,47 @@ const FlightPlanner = ({
   destinationCity,
   setDestinationCity,
 }) => {
-  const [selectedDate, setSelectedDate] = useState(dayjs());
+  const [selectedDate, setSelectedDate] = useState(null); // Start with no date selected
+  const [dateError, setDateError] = useState(false);
+  const [cityError, setCityError] = useState(false);
 
   const handlePredict = async () => {
-    const destinationWeatherKey = getDestinationWeatherKey(destinationCity);
-    const destinationPriceKey = getDestinationPriceKey(destinationCity);
-    const date = selectedDate.format("YYYY-MM-DD");
+    if (!selectedDate) setDateError(true);
+    if (!destinationCity) setCityError(true);
 
-    try {
-      // Make requests to both weather and price prediction endpoints
-      const weatherResponse = await axios.post(
-        "http://127.0.0.1:8000/predict_weather",
-        {
-          destination: destinationWeatherKey,
-          date,
-        }
-      );
+    // Only proceed if both fields are valid
+    if (selectedDate && destinationCity) {
+      const destinationWeatherKey = getDestinationWeatherKey(destinationCity);
+      const destinationPriceKey = getDestinationPriceKey(destinationCity);
+      const date = selectedDate.format("YYYY-MM-DD");
 
-      const priceResponse = await axios.post(
-        `http://127.0.0.1:8000/predict_price/${destinationPriceKey}`,
-        {
-          day_of_week_encoded: selectedDate.day(),
-        }
-      );
+      try {
+        // Make requests to both weather and price prediction endpoints
+        const weatherResponse = await axios.post(
+          "http://127.0.0.1:8000/predict_weather",
+          {
+            destination: destinationWeatherKey,
+            date,
+          }
+        );
 
-      // Combine both responses for Melbourne weather and price prediction
-      onPredict(
-        {
-          ...weatherResponse.data,
-          priceMelbourne: priceResponse.data.predicted_price.toFixed(2),
-        },
-        destinationCity
-      );
-    } catch (error) {
-      console.error("Error fetching prediction:", error);
+        const priceResponse = await axios.post(
+          `http://127.0.0.1:8000/predict_price/${destinationPriceKey}`,
+          {
+            day_of_week_encoded: selectedDate.day(),
+          }
+        );
+
+        onPredict(
+          {
+            ...weatherResponse.data,
+            priceMelbourne: priceResponse.data.predicted_price.toFixed(2),
+          },
+          destinationCity
+        );
+      } catch (error) {
+        console.error("Error fetching prediction:", error);
+      }
     }
   };
 
@@ -110,8 +117,16 @@ const FlightPlanner = ({
             <DatePicker
               label="Select Date"
               value={selectedDate}
-              onChange={(newDate) => setSelectedDate(newDate)}
-              renderInput={(params) => <TextField {...params} />}
+              onChange={(newDate) => {
+                setSelectedDate(newDate);
+                setDateError(false); // Clear error when a date is selected
+              }}
+              renderInput={(params) => (
+                <TextField
+                  error={dateError} // Show red outline if dateError is true
+                  helperText={dateError ? "Please select a date" : ""}
+                />
+              )}
               orientation="landscape"
               minDate={dayjs()}
             />
@@ -128,7 +143,7 @@ const FlightPlanner = ({
               alt="Plane Icon"
             />
             ------------------
-            <h2>{getDestinationWeatherKey(destinationCity)}</h2>{" "}
+            <h2>{getDestinationWeatherKey(destinationCity)}</h2>
           </div>
         </div>
 
@@ -139,9 +154,17 @@ const FlightPlanner = ({
             select
             label="Destination City"
             value={destinationCity}
-            onChange={(e) => setDestinationCity(e.target.value)}
-            helperText="Select your destination"
+            onChange={(e) => {
+              setDestinationCity(e.target.value);
+              setCityError(false); // Clear error when a city is selected
+            }}
+            helperText={
+              cityError
+                ? "Please select a destination city"
+                : "Select your destination"
+            }
             variant="standard"
+            error={cityError}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
