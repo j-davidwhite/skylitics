@@ -1,37 +1,122 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import rain from "../../assets/icons8-rain.png";
 import wind from "../../assets/icons8-wind.png";
 import maxTemp from "../../assets/icons8-maxtemp.png";
 import minTemp from "../../assets/icons8-mintemp.png";
-import delay from "../../assets/icons8-delay.png";
 import { useTheme } from "../ThemeContext";
 import "./Delay.css";
 import { LinearProgress, Box, Typography, CardContent } from "@mui/material";
 
-// Example data from the Python function
-const exampleDelayData = {
-  message: "Moderate risk of delay. Monitor conditions: due to expected rain.",
-  data: {
-    rain: 60,
-    wind_speed: 40,
-    max_temp: 90,
-    min_temp: 20,
-    delay_probability: 70,
-  },
+// Updated thresholds to match realistic values
+const THRESHOLDS = {
+  maxTempBaseline: 20, // Start contributing above 20°C
+  maxTempFull: 40, // Full contribution at 40°C
+  minTempBaseline: -5, // Start contributing below -5°C
+  minTempFull: -15, // Full contribution at -15°C
+  rainFull: 30, // Full contribution at 30 mm
+  windSpeedFull: 60, // Full contribution at 60 km/h
 };
 
-const Delay = () => {
-  const [delayData, setDelayData] = useState({});
+// Contribution calculation for temperatures above or below the threshold baselines
+const calculateHighTempContribution = (value) => {
+  if (value > THRESHOLDS.maxTempFull) return 100;
+  if (value > THRESHOLDS.maxTempBaseline) {
+    return (
+      ((value - THRESHOLDS.maxTempBaseline) /
+        (THRESHOLDS.maxTempFull - THRESHOLDS.maxTempBaseline)) *
+      100
+    );
+  }
+  return 0;
+};
+
+const calculateMinTempContribution = (value) => {
+  if (value < THRESHOLDS.minTempFull) return 100;
+  if (value < THRESHOLDS.minTempBaseline) {
+    return (
+      ((THRESHOLDS.minTempBaseline - value) /
+        (THRESHOLDS.minTempBaseline - THRESHOLDS.minTempFull)) *
+      100
+    );
+  }
+  return 0;
+};
+
+// Calculate contribution based on closeness to full threshold
+const calculateRainContribution = (value) => {
+  return Math.min((value / THRESHOLDS.rainFull) * 100, 100);
+};
+
+const calculateWindSpeedContribution = (value) => {
+  return Math.min((value / THRESHOLDS.windSpeedFull) * 100, 100);
+};
+
+const Delay = ({ prediction }) => {
   const { isLightMode } = useTheme();
 
-  useEffect(() => {
-    setDelayData(exampleDelayData.data);
-  }, []);
+  const delayData = {
+    delay_probability: prediction
+      ? Math.min(
+          (calculateRainContribution(
+            Math.max(prediction["rainMelbourne"], prediction["rainDestination"])
+          ) +
+            calculateWindSpeedContribution(
+              Math.max(
+                prediction["windSpeedMelbourne"],
+                prediction["windSpeedDestination"]
+              )
+            ) +
+            calculateHighTempContribution(
+              Math.max(
+                prediction["maxTempMelbourne"],
+                prediction["maxTempDestination"]
+              )
+            ) +
+            calculateMinTempContribution(
+              Math.min(
+                prediction["minTempMelbourne"],
+                prediction["minTempDestination"]
+              )
+            )) /
+            4,
+          100
+        ).toFixed(1)
+      : "0.0",
+    rain: prediction
+      ? calculateRainContribution(
+          Math.max(prediction["rainMelbourne"], prediction["rainDestination"])
+        ).toFixed(1)
+      : "0.0",
+    wind_speed: prediction
+      ? calculateWindSpeedContribution(
+          Math.max(
+            prediction["windSpeedMelbourne"],
+            prediction["windSpeedDestination"]
+          )
+        ).toFixed(1)
+      : "0.0",
+    max_temp: prediction
+      ? calculateHighTempContribution(
+          Math.max(
+            prediction["maxTempMelbourne"],
+            prediction["maxTempDestination"]
+          )
+        ).toFixed(1)
+      : "0.0",
+    min_temp: prediction
+      ? calculateMinTempContribution(
+          Math.min(
+            prediction["minTempMelbourne"],
+            prediction["minTempDestination"]
+          )
+        ).toFixed(1)
+      : "0.0",
+  };
 
   return (
     <CardContent className={`delay ${isLightMode ? "light" : "dark"}`}>
       <div className="delay-risk">
-        <Typography variant="h6" gutterBottom sx={{ color: "#9e9e9e" }}>
+        <Typography variant="h6" gutterBottom>
           Delay Risk
         </Typography>
       </div>
@@ -44,7 +129,7 @@ const Delay = () => {
         <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
-            value={delayData.delay_probability}
+            value={parseFloat(delayData.delay_probability)}
             sx={{
               height: 10,
               borderRadius: 5,
@@ -52,10 +137,10 @@ const Delay = () => {
               "& .MuiLinearProgress-bar": {
                 backgroundColor:
                   delayData.delay_probability < 40
-                    ? "#4caf50" // Green for low risk
+                    ? "#4caf50"
                     : delayData.delay_probability < 70
-                    ? "#ffeb3b" // Yellow for moderate risk
-                    : "#f44336", // Red for high risk
+                    ? "#ffeb3b"
+                    : "#f44336",
               },
             }}
           />
@@ -63,7 +148,7 @@ const Delay = () => {
         <Typography variant="body1">{delayData.delay_probability}%</Typography>
       </Box>
 
-      {/* Rain */}
+      {/* Rain Contribution */}
       <Box className="rain">
         <Typography variant="body1" style={{ flex: 1 }}>
           Rain <img src={rain} alt="Rain Icon" />
@@ -71,21 +156,19 @@ const Delay = () => {
         <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
-            value={delayData.rain}
+            value={parseFloat(delayData.rain)}
             sx={{
               height: 10,
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
-              "& .MuiLinearProgress-bar": {
-                backgroundColor: "#2196f3", // Blue for rain
-              },
+              "& .MuiLinearProgress-bar": { backgroundColor: "#2196f3" },
             }}
           />
         </Box>
         <Typography variant="body1">{delayData.rain}%</Typography>
       </Box>
 
-      {/* Wind Speed */}
+      {/* Wind Speed Contribution */}
       <Box className="wind">
         <Typography variant="body1" style={{ flex: 1 }}>
           Wind Speed <img src={wind} alt="Wind Icon" />
@@ -93,21 +176,19 @@ const Delay = () => {
         <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
-            value={delayData.wind_speed}
+            value={parseFloat(delayData.wind_speed)}
             sx={{
               height: 10,
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
-              "& .MuiLinearProgress-bar": {
-                backgroundColor: "#9e9e9e", // Grey for wind speed
-              },
+              "& .MuiLinearProgress-bar": { backgroundColor: "#9e9e9e" },
             }}
           />
         </Box>
         <Typography variant="body1">{delayData.wind_speed}%</Typography>
       </Box>
 
-      {/* Max Temperature */}
+      {/* Max Temperature Contribution */}
       <Box className="max-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
           Max Temperature <img src={maxTemp} alt="Max Temperature Icon" />
@@ -115,21 +196,19 @@ const Delay = () => {
         <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
-            value={delayData.max_temp}
+            value={parseFloat(delayData.max_temp)}
             sx={{
               height: 10,
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
-              "& .MuiLinearProgress-bar": {
-                backgroundColor: "#ff5722", // Orange for high temperatures
-              },
+              "& .MuiLinearProgress-bar": { backgroundColor: "#ff5722" },
             }}
           />
         </Box>
         <Typography variant="body1">{delayData.max_temp}%</Typography>
       </Box>
 
-      {/* Min Temperature */}
+      {/* Min Temperature Contribution */}
       <Box className="min-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
           Min Temperature <img src={minTemp} alt="Min Temperature Icon" />
@@ -137,14 +216,12 @@ const Delay = () => {
         <Box width="50%" mr={4.8}>
           <LinearProgress
             variant="determinate"
-            value={delayData.min_temp}
+            value={parseFloat(delayData.min_temp)}
             sx={{
               height: 10,
               borderRadius: 5,
               backgroundColor: "#e0e0e0",
-              "& .MuiLinearProgress-bar": {
-                backgroundColor: "#00bcd4", // Cyan for low temperatures
-              },
+              "& .MuiLinearProgress-bar": { backgroundColor: "#00bcd4" },
             }}
           />
         </Box>

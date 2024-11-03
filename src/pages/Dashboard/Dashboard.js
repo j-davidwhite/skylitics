@@ -31,7 +31,11 @@ const Dashboard = () => {
         destinationCity={destinationCity}
         prediction={prediction}
       />
-      <Delay isLightMode={isLightMode} destinationCity={destinationCity} />
+      <Delay
+        isLightMode={isLightMode}
+        destinationCity={destinationCity}
+        prediction={prediction}
+      />
       <Departure isLightMode={isLightMode} prediction={prediction} />
       <Destination
         isLightMode={isLightMode}
