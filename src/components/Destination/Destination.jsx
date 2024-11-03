@@ -13,6 +13,7 @@ const Destination = ({ destinationCity, prediction }) => {
   return (
     <div className="destination">
       <div className="destination-left">
+        <div className="forecast">Landing</div>
         <div className="rain">
           <img
             src={isLightMode ? umbrellaLight : umbrellaDark}

@@ -31,7 +31,7 @@ const Delay = () => {
   return (
     <CardContent className={`delay ${isLightMode ? "light" : "dark"}`}>
       <div className="delay-risk">
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom sx={{ color: "#9e9e9e" }}>
           Delay Risk
         </Typography>
       </div>

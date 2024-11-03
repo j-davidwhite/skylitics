@@ -30,19 +30,20 @@
 .cost {
   grid-area: cost;
 }
+.cost-info p {
+  margin-top: 0.5rem;
+}
+.cost-info p {
+  text-align: center;
+  margin-top: 0.5rem;
+}
 
 .departure {
   grid-area: departure;
 }
-.departure-info {
-  grid-area: departure-info;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 .departure-info p {
-  text-align: center;
+  margin-top: 0.5rem;
 }
 
 .destination {
@@ -57,4 +58,5 @@
 }
 .destination-info p {
   text-align: center;
+  margin-top: 0.5rem;
 }

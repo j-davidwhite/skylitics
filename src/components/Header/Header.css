@@ -11,6 +11,7 @@
   box-shadow: inset 5px 5px 9px #bebebe, inset -5px -5px 9px #ffffff;
   padding-left: 2rem;
   padding-right: 2rem;
+  font-family: "Nunito Sans", sans-serif;
 }
 .header-left {
   display: flex;
@@ -25,6 +26,7 @@
   font-weight: 700;
   font-style: normal;
   font-size: 1.3rem;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .header-right {

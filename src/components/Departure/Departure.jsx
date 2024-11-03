@@ -7,8 +7,6 @@ import umbrellaLight from "../../assets/icons8-umbrella-light.png";
 import umbrellaDark from "../../assets/icons8-umbrella-dark.png";
 import windLight from "../../assets/icons8-wind-light.png";
 import windDark from "../../assets/icons8-wind-dark.png";
-import sunLight from "../../assets/icons8-sun-light.png";
-import sunDark from "../../assets/icons8-sun-dark.png";
 
 const Departure = ({ prediction }) => {
   const { isLightMode } = useTheme();
@@ -16,6 +14,7 @@ const Departure = ({ prediction }) => {
   return (
     <div className="Departure">
       <div className="departure-left">
+        <div className="forecast">Take Off</div>
         <div className="rain">
           <img
             src={isLightMode ? umbrellaLight : umbrellaDark}

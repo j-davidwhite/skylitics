@@ -1,4 +1,5 @@
 .Departure {
+  font-family: "Nunito Sans", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,9 +25,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1.5rem;
 }
-
+.forecast {
+  font-weight: 500;
+  color: grey;
+}
 .rain {
   display: flex;
   justify-content: center;

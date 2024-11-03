@@ -38,6 +38,7 @@ const Analytics = () => {
       </div>
 
       <CostAnalysis />
+      <Delay />
 
       <div className="cost-info">
         <h4>Cost Analysis: Predicted Flight Cost Overview</h4>
@@ -49,8 +50,6 @@ const Analytics = () => {
         </p>
       </div>
 
-      <Delay />
-
       <div className="delay-info">
         <h4>Flight Delay Analysis</h4>
         <p>
@@ -61,7 +60,7 @@ const Analytics = () => {
       </div>
 
       <Departure />
-
+      <Destination />
       <div className="departure-info">
         <h4>Takeoff Weather Forecast for Melbourne</h4>
         <p>
@@ -71,8 +70,6 @@ const Analytics = () => {
           anticipate conditions that may affect flight timing and comfort.
         </p>
       </div>
-
-      <Destination />
 
       <div className="destination-info">
         <h4>Landing Weather Forecast for Selected City</h4>
