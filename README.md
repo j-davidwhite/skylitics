@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Project Setup and Run Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome! Follow these steps to set up and run the application.
 
-## Available Scripts
+### Prerequisites
 
-In the project directory, you can run:
+1. **Python 3.8+**
+2. **Node.js** (version 14+ recommended)
 
-### `npm start`
+### Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Extract and Open Project in VS Code**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   - Unzip the project folder.
+   - Open the folder in Visual Studio Code (VS Code).
 
-### `npm test`
+2. **Install Python Dependencies**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - Open the terminal in VS Code.
+   - Ensure you’re in the root project directory where `requirements.txt` is located.
+   - Install the Python dependencies by running:
 
-### `npm run build`
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Install Node Modules for Frontend**
+   - From the root project directory, install the Node.js dependencies by running:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Running the Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Train Models**
 
-### `npm run eject`
+   - Navigate to the `src` directory.
+   - Run the following command to train the machine learning models:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   python train_all_models.py
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Run the Backend**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   - While still in the `src` directory, start the FastAPI backend server by running:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   python app.py
+   ```
 
-## Learn More
+3. **Run the Frontend**
+   - Open a new terminal and ensure you’re in the root project directory.
+   - Start the frontend server by running:
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The application should now be running. Access it by navigating to `http://localhost:3000` in your web browser.
