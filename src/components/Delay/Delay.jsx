@@ -151,7 +151,7 @@ const Delay = ({ prediction }) => {
       {/* Rain Contribution */}
       <Box className="rain">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Rain <img src={rain} alt="Rain Icon" />
+          Rain
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -171,7 +171,7 @@ const Delay = ({ prediction }) => {
       {/* Wind Speed Contribution */}
       <Box className="wind">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Wind Speed <img src={wind} alt="Wind Icon" />
+          Wind Speed
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -191,7 +191,7 @@ const Delay = ({ prediction }) => {
       {/* Max Temperature Contribution */}
       <Box className="max-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Max Temperature <img src={maxTemp} alt="Max Temperature Icon" />
+          Max Temperature
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress
@@ -211,7 +211,7 @@ const Delay = ({ prediction }) => {
       {/* Min Temperature Contribution */}
       <Box className="min-temp">
         <Typography variant="body1" style={{ flex: 1 }}>
-          Min Temperature <img src={minTemp} alt="Min Temperature Icon" />
+          Min Temperature
         </Typography>
         <Box width="50%" mr={4.8}>
           <LinearProgress

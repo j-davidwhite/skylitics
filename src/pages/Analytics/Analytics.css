@@ -10,12 +10,18 @@
     "departure destination"
     "departure-info destination-info";
   gap: 2rem;
-  padding: 1%;
+  padding: 1rem;
   height: 100vh;
   width: auto;
   overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0 auto;
   align-items: start;
   font-family: "Nunito Sans", sans-serif;
+  box-sizing: border-box;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .bar {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Dashboard.css";
 import Delay from "../../components/Delay/Delay";
 import FlightPlanner from "../../components/FlightPlanner/FlightPlanner";
@@ -7,15 +7,11 @@ import Departure from "../../components/Departure/Departure";
 import Destination from "../../components/Destination/Destination";
 import { useTheme } from "../../components/ThemeContext";
 
-const Dashboard = () => {
+const Dashboard = ({ prediction, destinationCity, setPrediction }) => {
   const { isLightMode } = useTheme();
 
-  const [prediction, setPrediction] = useState(null);
-  const [destinationCity, setDestinationCity] = useState("");
-
   const handlePrediction = (newPrediction, destination) => {
-    setPrediction(newPrediction);
-    setDestinationCity(destination);
+    setPrediction(newPrediction, destination);
   };
 
   return (
@@ -24,7 +20,7 @@ const Dashboard = () => {
         isLightMode={isLightMode}
         onPredict={handlePrediction}
         destinationCity={destinationCity}
-        setDestinationCity={setDestinationCity}
+        setDestinationCity={(city) => setPrediction(prediction, city)}
       />
       <CostAnalysis
         isLightMode={isLightMode}

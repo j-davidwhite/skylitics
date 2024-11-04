@@ -6,9 +6,10 @@
     "flight flight"
     "cost delay"
     "departure destination";
-  gap: 2rem;
+  gap: 1.8rem;
   height: 100vh;
   width: auto;
+  margin-top: 0.6rem;
 }
 
 .flight-planner {

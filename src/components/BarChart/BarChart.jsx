@@ -22,8 +22,8 @@ function BarChart() {
     );
 
     const svg = d3.select(svgRef.current);
-    const width = 500;
-    const height = 300;
+    const width = 425;
+    const height = 275;
     const padding = 40;
 
     svg.selectAll("*").remove();
@@ -89,7 +89,7 @@ function BarChart() {
       <h2>Average Flight Prices per Day</h2>
       <button onClick={() => setSortBy("price")}>Sort by Price</button>
       <button onClick={() => setSortBy("day")}>Sort by Day</button>
-      <svg ref={svgRef} width={500} height={300}></svg>
+      <svg ref={svgRef} width={450} height={300}></svg>
     </div>
   );
 }

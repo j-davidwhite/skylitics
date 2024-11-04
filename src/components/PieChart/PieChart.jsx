@@ -72,9 +72,9 @@ function PieChart() {
 
   return (
     <div className="pie-chart">
-      <h2>Weather Breakdown by Year (Temperature vs. Rainfall)</h2>
+      <h2>Temperature vs. Rainfall by Year</h2>
       <label>
-        Select Year:
+        Select Year:&nbsp;&nbsp;&nbsp;
         <select onChange={(e) => setYear(e.target.value)} value={year}>
           <option value="2018">2018</option>
           <option value="2019">2019</option>

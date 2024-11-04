@@ -7,6 +7,11 @@
   box-shadow: var(--deselected-light);
   padding: 1rem;
   border-radius: 10px;
+  width: 30rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 .dark .pie-chart {
   background: var(--bg-dark);
@@ -30,4 +35,12 @@
   display: inline-block;
   margin-right: 0.5rem;
   border-radius: 2px;
+}
+.pie-chart h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 22px;
 }

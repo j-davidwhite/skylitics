@@ -5,13 +5,14 @@ import Delay from "../../components/Delay/Delay";
 import CostAnalysis from "../../components/CostAnalysis/CostAnalysis";
 import Departure from "../../components/Departure/Departure";
 import Destination from "../../components/Destination/Destination";
-
 import BarChart from "../../components/BarChart/BarChart";
 import PieChart from "../../components/PieChart/PieChart";
 
-const Analytics = () => {
+const Analytics = ({ prediction, destinationCity }) => {
+  const { isLightMode } = useTheme();
+
   return (
-    <div className="analytics">
+    <div className={`analytics ${isLightMode ? "" : "dark"}`}>
       <BarChart />
       <PieChart />
 
@@ -21,8 +22,7 @@ const Analytics = () => {
           The "Average Flight Prices per Day" bar chart visualizes average
           flight costs across each day of the week. This helps users identify
           which days offer more economical fares, supporting better budget
-          planning. Users can sort by price or day to reveal cost-saving trends
-          for optimal travel timing.
+          planning.
         </p>
       </div>
 
@@ -31,22 +31,19 @@ const Analytics = () => {
         <p>
           The "Weather Breakdown by Year" pie chart compares average temperature
           and rainfall for each selected year. This overview helps users
-          understand weather trends at a glance, with options to view changes
-          across different years, making it useful for travel and event planning
-          based on historical climate data.
+          understand weather trends at a glance.
         </p>
       </div>
 
-      <CostAnalysis />
-      <Delay />
+      <CostAnalysis prediction={prediction} destinationCity={destinationCity} />
+      <Delay prediction={prediction} destinationCity={destinationCity} />
 
       <div className="cost-info">
         <h4>Cost Analysis: Predicted Flight Cost Overview</h4>
         <p>
           The Cost Analysis section provides a streamlined view of estimated
           flight costs for Virgin Australia flights from Melbourne (MLB) to a
-          selected destination. This insight supports budget-conscious planning
-          by giving users a clear price estimate for their selected route.
+          selected destination.
         </p>
       </div>
 
@@ -59,15 +56,15 @@ const Analytics = () => {
         </p>
       </div>
 
-      <Departure />
-      <Destination />
+      <Departure prediction={prediction} />
+      <Destination prediction={prediction} destinationCity={destinationCity} />
+
       <div className="departure-info">
         <h4>Takeoff Weather Forecast for Melbourne</h4>
         <p>
           The Departure section provides essential weather predictions for
           takeoff conditions from Melbourne, with details on rain levels, wind
-          speed, and maximum temperature. This helps travelers and crew
-          anticipate conditions that may affect flight timing and comfort.
+          speed, and maximum temperature.
         </p>
       </div>
 
@@ -76,8 +73,6 @@ const Analytics = () => {
         <p>
           The Destination section offers a focused prediction of landing
           conditions for the selected city, whether Brisbane, Perth, or Sydney.
-          This forecast assists users in preparing for arrival weather
-          conditions, including expected rainfall, wind speed, and temperature.
         </p>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, useTheme } from "./components/ThemeContext";
@@ -10,6 +11,13 @@ import Support from "./pages/Support/Support";
 
 function AppContent() {
   const { isLightMode } = useTheme();
+  const [prediction, setPrediction] = useState(null);
+  const [destinationCity, setDestinationCity] = useState("");
+
+  const handlePrediction = (newPrediction, destination) => {
+    setPrediction(newPrediction);
+    setDestinationCity(destination);
+  };
 
   return (
     <div className={`App ${isLightMode ? "" : "dark"}`}>
@@ -18,8 +26,25 @@ function AppContent() {
 
       <div className={`main-content ${isLightMode ? "" : "dark"}`}>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/analytics" element={<Analytics />} />
+          <Route
+            path="/"
+            element={
+              <Dashboard
+                prediction={prediction}
+                destinationCity={destinationCity}
+                setPrediction={handlePrediction}
+              />
+            }
+          />
+          <Route
+            path="/analytics"
+            element={
+              <Analytics
+                prediction={prediction}
+                destinationCity={destinationCity}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/support" element={<Support />} />
         </Routes>

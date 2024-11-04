@@ -19,7 +19,7 @@ const FlightPlanner = ({
   destinationCity,
   setDestinationCity,
 }) => {
-  const [selectedDate, setSelectedDate] = useState(null); // Start with no date selected
+  const [selectedDate, setSelectedDate] = useState(dayjs()); // Start with no date selected
   const [dateError, setDateError] = useState(false);
   const [cityError, setCityError] = useState(false);
 
