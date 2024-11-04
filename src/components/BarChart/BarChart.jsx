@@ -24,7 +24,7 @@ function BarChart() {
     const svg = d3.select(svgRef.current);
     const width = 425;
     const height = 275;
-    const padding = 40;
+    const padding = 60;
 
     svg.selectAll("*").remove();
 

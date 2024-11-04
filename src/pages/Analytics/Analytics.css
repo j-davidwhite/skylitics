@@ -23,46 +23,24 @@
   align-items: center;
   justify-content: center;
 }
-
 .bar {
   grid-area: flight;
 }
-
 .pie {
   grid-area: delay;
   background: var(--bg-light);
 }
-
 .cost {
   grid-area: cost;
 }
-.cost-info p {
-  margin-top: 0.5rem;
-}
-.cost-info p {
-  text-align: center;
-  margin-top: 0.5rem;
-}
-
 .departure {
   grid-area: departure;
 }
-
-.departure-info p {
-  margin-top: 0.5rem;
-}
-
 .destination {
   grid-area: destination;
 }
-.destination-info {
-  grid-area: destination-info;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.destination-info p {
+.analytics p,
+.analytics h4 {
   text-align: center;
   margin-top: 0.5rem;
 }

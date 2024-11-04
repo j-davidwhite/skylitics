@@ -224,6 +224,7 @@ h2 {
 .team-name {
   width: 18rem;
   height: auto;
+  margin-top: 2rem;
 }
 .team-container {
   display: flex;
@@ -236,7 +237,8 @@ h2 {
   background-color: var(--bg-light);
   border-radius: 10px;
   box-shadow: var(--deselected-light);
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
 }
 .main-content.dark .line {
   background-color: var(--bg-dark);

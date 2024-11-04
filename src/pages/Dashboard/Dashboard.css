@@ -12,6 +12,28 @@
   margin-top: 0.6rem;
 }
 
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .Dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "flight"
+      "cost"
+      "delay"
+      "departure"
+      "destination";
+    height: auto;
+  }
+
+  .flight-planner,
+  .delay,
+  .cost,
+  .departure,
+  .destination {
+    width: 100%;
+  }
+}
+
 .flight-planner {
   grid-area: flight;
 }

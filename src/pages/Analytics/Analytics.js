@@ -50,9 +50,13 @@ const Analytics = ({ prediction, destinationCity }) => {
       <div className="delay-info">
         <h4>Flight Delay Analysis</h4>
         <p>
-          This section provides insights into potential flight delays based on
-          historical data and real-time conditions, helping users prepare for
-          any expected disruptions to their travel plans.
+          This section analyzes potential flight delays based on historical
+          weather data to help users anticipate disruptions. Delay risk
+          considers weather at both departure and arrival locations, evaluating
+          how close each condition is to thresholds known to impact flights.
+          Each factor’s delay likelihood is displayed as a percentage, with an
+          overall probability to give travelers a clear view of potential
+          delays.
         </p>
       </div>
 
