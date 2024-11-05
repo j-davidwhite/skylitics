@@ -36,7 +36,14 @@
   align-items: center;
   gap: 1.5rem;
 }
-
+.flight-planner-middle {
+  width: 100%;
+}
+.trip-details h2 {
+  display: inline-block;
+  width: 3rem; /* Adjust width to a fixed value */
+  text-align: center;
+}
 .departure-select {
   width: 12rem;
 }
@@ -45,9 +52,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 30rem;
+  width: 35rem;
   gap: 1rem;
-  font-size: 15px;
+  font-size: 12px;
 }
 .PlaneIcon {
   width: 4rem;
