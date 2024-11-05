@@ -30,7 +30,7 @@ const Destination = ({ destinationCity, prediction }) => {
       <div className="destination-right">
         <div className="location">
           <LocationOnSharpIcon />
-          <div>{destinationCity}</div>
+          <div>{destinationCity ? destinationCity : "-"}</div>
           <KeyboardArrowDownSharpIcon />
         </div>
         <div className="maxTemp">

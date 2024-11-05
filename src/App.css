@@ -69,6 +69,6 @@ html {
 }
 .dark .main-content {
   background: var(--bg-dark);
-  box-shadow: var(--deselected-dark);
+  box-shadow: var(--selected-dark);
   color: var(--text-dark);
 }

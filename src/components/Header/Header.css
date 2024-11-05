@@ -50,7 +50,7 @@
 .dark .header {
   background-color: var(--bg-dark);
   color: var(--text-dark);
-  box-shadow: var(--deselected-dark);
+  box-shadow: var(--selected-dark);
 }
 .notifications {
   background: var(--bg-light);

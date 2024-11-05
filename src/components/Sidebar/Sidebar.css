@@ -144,7 +144,7 @@
 
 /*============================== DARK MODE STYLES ==============================*/
 .sidebar.dark {
-  background-color: var(--bg-dark);
+  background-color: #1e1e1e;
   color: var(--text-dark);
 }
 .sidebar.dark .sidebar-middle div {

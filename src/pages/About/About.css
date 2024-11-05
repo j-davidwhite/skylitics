@@ -18,8 +18,6 @@
 .dark .about {
   background-color: var(--bg-dark);
   color: var(--text-dark);
-  box-shadow: var(--deselected-dark);
-  border: var(--border-dark);
 }
 h2 {
   font-family: "Nunito Sans", sans-serif;
