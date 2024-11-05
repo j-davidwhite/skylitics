@@ -116,6 +116,7 @@ const FlightPlanner = ({
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
+              className="date-select"
               label="Select Date"
               value={selectedDate}
               onChange={(newDate) => {

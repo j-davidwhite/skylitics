@@ -62,66 +62,68 @@
   align-items: center;
   gap: 1.5rem;
 }
-
-/* Target all relevant MUI components globally */
-.flight-planner.dark .MuiFormControl-root,
-.flight-planner.dark .MuiTextField-root,
-.flight-planner.dark .MuiInputBase-root,
-.flight-planner.dark .MuiSelect-select,
-.flight-planner.dark .MuiInputBase-input,
-.flight-planner.dark .MuiFormLabel-root,
-.flight-planner.dark .MuiInputAdornment-root,
-.flight-planner.dark .MuiFormHelperText-root {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-dark) !important;
-  border-color: var(
-    --border-dark
-  ) !important; /* Unified border color (white in dark mode) */
-}
-
-/* Disabled state */
-.flight-planner.dark .Mui-disabled {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-dark) !important;
-}
-
-/* Specific rule for adorned inputs (icon color handling) */
-.flight-planner.dark .MuiInputBase-inputAdornedStart {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-dark) !important;
-}
-
-/* Additional handling for select dropdown with long class chain */
-.flight-planner.dark
-  .MuiSelect-select.MuiSelect-standard.Mui-disabled.MuiInputBase-input.MuiInput-input.Mui-disabled.MuiInputBase-inputAdornedStart {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-dark) !important;
-}
-
-/* Target departure-select and destination-select with specific border styling */
-.flight-planner.dark .departure-select,
-.flight-planner.dark .destination-select,
-.flight-planner.dark .MuiTextField-root {
-  border-bottom: 1px solid var(--border-dark) !important; /* White underline for text fields */
-}
-
-/* Force underline for the date picker */
-.flight-planner.dark .MuiInput-underline:before {
-  border-bottom: 1px solid var(--border-dark) !important; /* White underline for DatePicker */
-}
-
-/* Handling icon color in departure-select and destination-select */
-.flight-planner.dark .departure-select .MuiInputAdornment-root,
-.flight-planner.dark .destination-select .MuiInputAdornment-root {
-  color: var(--text-dark) !important; /* Dark mode icon color */
-}
-.flight-planner.dark .MuiInput-underline:before,
-.flight-planner.dark .MuiSelect-select::before {
-  border-bottom: 1px solid var(--text-dark) !important; /* White underline */
-}
 .predict {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+/* Select Icons */
+.flight-planner.dark .departure-select .MuiInputAdornment-root svg,
+.flight-planner.dark .destination-select .MuiInputAdornment-root svg,
+.flight-planner.dark .date-select .MuiInputAdornment-root svg {
+  color: #ffffff; /* White color for dark mode */
+}
+/* Select Underline */
+.flight-planner.dark .MuiInput-underline:before {
+  border-bottom: 1px solid #ffffff; /* White underline for dark mode */
+}
+.flight-planner.dark .MuiInput-underline:after {
+  border-bottom: 2px solid #ffffff; /* Thicker underline on focus */
+}
+
+/* Select Value */
+.flight-planner.dark .MuiInputBase-input {
+  color: #ffffff; /* White text for input values */
+}
+
+.flight-planner.dark .Mui-disabled {
+  color: grey;
+}
+/* Select Header */
+.flight-planner.dark label {
+  color: grey;
+}
+
+/* Date Outline */
+.flight-planner.dark .MuiOutlinedInput-notchedOutline {
+  border-color: #ffffff; /* White outline for dark mode */
+}
+.flight-planner.dark
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #ffffff; /* White outline when focused */
+}
+/* Melbourne Default Value */
+.flight-planner.dark .departure-select .MuiInputBase-input.Mui-disabled {
+  -webkit-text-fill-color: #ffffff !important; /* Force grey text color */
+}
+/* ------------------------ */
+.flight-planner.dark .destination-select .MuiInputLabel-root.Mui-error {
+  color: #ff1744 !important; /* Red label for error */
+}
+.flight-planner.dark .destination-select .MuiInput-underline:after {
+  border-bottom-color: #ff1744 !important; /* Red underline when focused */
+}
+
+.flight-planner.dark .destination-select .MuiInput-underline:before {
+  border-bottom-color: #ffffff !important; /* White underline when not focused */
+}
+
+.flight-planner.dark .MuiFormHelperText-root {
+  background-color: var(--bg-dark) !important;
+  color: grey !important;
+}
+.flight-planner.dark .MuiFormHelperText-root.Mui-error {
+  color: #ff1744 !important; /* Red color for error message */
 }
