@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import "./PieChart.css";
 
+// Sample data for temperature and rainfall by year
 const dataByYear = {
   2018: { temperature: 23, rainfall: 85 },
   2019: { temperature: 24, rainfall: 95 },
@@ -10,26 +11,30 @@ const dataByYear = {
 };
 
 function PieChart() {
-  const svgRef = useRef();
-  const [year, setYear] = useState("2018");
+  const svgRef = useRef(); // Ref for the SVG element
+  const [year, setYear] = useState("2018"); // State for selected year
 
   useEffect(() => {
+    // Set up SVG canvas
     const svg = d3.select(svgRef.current);
     const width = 500;
     const height = 300;
     const radius = Math.min(width, height) / 2 - 20;
 
-    svg.selectAll("*").remove();
+    svg.selectAll("*").remove(); // Clear previous content
 
+    // Create group for pie chart centered within SVG
     const g = svg
       .attr("width", width)
       .attr("height", height)
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
+    // Set up pie and arc generators
     const pie = d3.pie().value((d) => d.value);
     const arc = d3.arc().innerRadius(0).outerRadius(radius);
 
+    // Prepare data for selected year
     const data = [
       {
         label: "Average Temperature (°C)",
@@ -38,6 +43,7 @@ function PieChart() {
       { label: "Average Rainfall (mm)", value: dataByYear[year].rainfall },
     ];
 
+    // Draw pie chart slices
     g.selectAll(".arc")
       .data(pie(data))
       .enter()
@@ -59,6 +65,7 @@ function PieChart() {
         return (t) => arc(i(t));
       });
 
+    // Add text labels to each slice
     g.selectAll(".arc")
       .data(pie(data))
       .enter()
@@ -68,7 +75,7 @@ function PieChart() {
       .attr("font-size", "12px")
       .attr("fill", "white")
       .text((d) => `${d.data.label}: ${d.data.value}`);
-  }, [year]);
+  }, [year]); // Redraw pie chart when year changes
 
   return (
     <div className="pie-chart">
@@ -84,6 +91,7 @@ function PieChart() {
       </label>
       <svg ref={svgRef}></svg>
 
+      {/* Legend for chart colors */}
       <div className="legend">
         <div className="legend-item">
           <span

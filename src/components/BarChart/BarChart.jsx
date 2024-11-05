@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import "./BarChart.css";
 
+// Sample dataset of average flight prices per day
 const dataset = [
   { day: "Monday", price: 120 },
   { day: "Tuesday", price: 135 },
@@ -13,21 +14,24 @@ const dataset = [
 ];
 
 function BarChart() {
-  const svgRef = useRef();
-  const [sortBy, setSortBy] = useState("day");
+  const svgRef = useRef(); // Reference for the SVG element
+  const [sortBy, setSortBy] = useState("day"); // State to track sorting criteria
 
   useEffect(() => {
+    // Sort dataset based on selected criterion (day or price)
     const sortedData = [...dataset].sort((a, b) =>
       sortBy === "price" ? b.price - a.price : d3.ascending(a.day, b.day)
     );
 
+    // Set up SVG dimensions and padding
     const svg = d3.select(svgRef.current);
     const width = 425;
     const height = 275;
     const padding = 60;
 
-    svg.selectAll("*").remove();
+    svg.selectAll("*").remove(); // Clear previous content
 
+    // Define x and y scales
     const xScale = d3
       .scaleBand()
       .domain(sortedData.map((d) => d.day))
@@ -39,16 +43,19 @@ function BarChart() {
       .domain([0, d3.max(sortedData, (d) => d.price)])
       .range([height - padding, padding]);
 
+    // Define color scale for bars
     const colorScale = d3
       .scaleSequential(d3.interpolateBlues)
       .domain([0, d3.max(sortedData, (d) => d.price)]);
 
+    // Tooltip setup
     const tooltip = d3
       .select("body")
       .append("div")
       .attr("class", "tooltip")
       .style("opacity", 0);
 
+    // Draw x-axis with rotated labels
     svg
       .append("g")
       .attr("transform", `translate(0,${height - padding})`)
@@ -57,11 +64,13 @@ function BarChart() {
       .attr("transform", "rotate(-45)")
       .style("text-anchor", "end");
 
+    // Draw y-axis
     svg
       .append("g")
       .attr("transform", `translate(${padding},0)`)
       .call(d3.axisLeft(yScale));
 
+    // Draw bars with dynamic color and tooltip interaction
     svg
       .selectAll("rect")
       .data(sortedData)
@@ -82,11 +91,12 @@ function BarChart() {
       .on("mouseout", () => {
         tooltip.transition().duration(500).style("opacity", 0);
       });
-  }, [sortBy]);
+  }, [sortBy]); // Re-render chart when sort criteria changes
 
   return (
     <div className="bar-chart">
       <h2>Average Flight Prices per Day</h2>
+      {/* Sort buttons for user interaction */}
       <button onClick={() => setSortBy("price")}>Sort by Price</button>
       <button onClick={() => setSortBy("day")}>Sort by Day</button>
       <svg ref={svgRef} width={450} height={300}></svg>

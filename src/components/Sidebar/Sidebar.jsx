@@ -54,7 +54,7 @@ function Sidebar() {
         <div
           className={`icon-container ${isLightMode ? "selected" : ""}`}
           onClick={toggleTheme} // Toggle theme on click
-          aria-label="Switch to Light Mode" // Accessibility label
+          aria-label="Switch to Light Mode"
         >
           <LightModeSharpIcon
             className={`light-mode ${!isLightMode ? "glow" : ""}`}
@@ -63,7 +63,7 @@ function Sidebar() {
         <div
           className={`icon-container ${!isLightMode ? "selected" : ""}`}
           onClick={toggleTheme} // Toggle theme on click
-          aria-label="Switch to Dark Mode" // Accessibility label
+          aria-label="Switch to Dark Mode"
         >
           <DarkModeSharpIcon
             className={`dark-mode ${isLightMode ? "glow" : ""}`}

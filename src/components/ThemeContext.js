@@ -19,7 +19,6 @@ const themes = {
       background: "#ffffff",
       color: "#000000",
     },
-    // Add other components as needed
   },
   dark: {
     sidebar: {
@@ -30,7 +29,6 @@ const themes = {
       background: "green",
       color: "#ffffff",
     },
-    // Add other components as needed
   },
 };
 

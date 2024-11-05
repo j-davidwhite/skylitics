@@ -17,7 +17,7 @@ const Analytics = ({ prediction, destinationCity }) => {
       <PieChart />
 
       <div className="bar-info">
-        <h4>Bar Chart: Average Flight Prices by Day</h4>
+        <h4>Average Flight Prices Overview</h4>
         <p>
           The "Average Flight Prices per Day" bar chart visualizes average
           flight costs across each day of the week. This helps users identify
@@ -27,11 +27,11 @@ const Analytics = ({ prediction, destinationCity }) => {
       </div>
 
       <div className="pie-info">
-        <h4>Pie Chart: Annual Weather Overview – Temperature vs. Rainfall</h4>
+        <h4>Annual Weather Overview</h4>
         <p>
-          The "Weather Breakdown by Year" pie chart compares average temperature
-          and rainfall for each selected year. This overview helps users
-          understand weather trends at a glance.
+          The "Temperature vs. Rainfall by Year" pie chart compares average
+          temperature and rainfall for each selected year. This overview helps
+          users understand weather trends at a glance.
         </p>
       </div>
 
@@ -39,7 +39,7 @@ const Analytics = ({ prediction, destinationCity }) => {
       <Delay prediction={prediction} destinationCity={destinationCity} />
 
       <div className="cost-info">
-        <h4>Cost Analysis: Predicted Flight Cost Overview</h4>
+        <h4>Predicted Flight Cost Overview</h4>
         <p>
           The Cost Analysis section provides a streamlined view of estimated
           flight costs for Virgin Australia flights from Melbourne (MLB) to a

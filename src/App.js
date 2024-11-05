@@ -9,11 +9,13 @@ import Analytics from "./pages/Analytics/Analytics";
 import About from "./pages/About/About";
 import Support from "./pages/Support/Support";
 
+// Main content component handling routing and theme-based styling
 function AppContent() {
-  const { isLightMode } = useTheme();
-  const [prediction, setPrediction] = useState(null);
-  const [destinationCity, setDestinationCity] = useState("");
+  const { isLightMode } = useTheme(); // Access theme mode
+  const [prediction, setPrediction] = useState(null); // State for prediction data
+  const [destinationCity, setDestinationCity] = useState(""); // State for selected city
 
+  // Update prediction and destination city states
   const handlePrediction = (newPrediction, destination) => {
     setPrediction(newPrediction);
     setDestinationCity(destination);
@@ -32,7 +34,7 @@ function AppContent() {
               <Dashboard
                 prediction={prediction}
                 destinationCity={destinationCity}
-                setPrediction={handlePrediction}
+                setPrediction={handlePrediction} // Pass update function to Dashboard
               />
             }
           />
@@ -53,6 +55,7 @@ function AppContent() {
   );
 }
 
+// Root app component with theme and router providers
 function App() {
   return (
     <ThemeProvider>

@@ -7,9 +7,11 @@ import Departure from "../../components/Departure/Departure";
 import Destination from "../../components/Destination/Destination";
 import { useTheme } from "../../components/ThemeContext";
 
+// Dashboard component displaying key sections with prediction data
 const Dashboard = ({ prediction, destinationCity, setPrediction }) => {
-  const { isLightMode } = useTheme();
+  const { isLightMode } = useTheme(); // Access theme mode
 
+  // Handles prediction updates and destination selection
   const handlePrediction = (newPrediction, destination) => {
     setPrediction(newPrediction, destination);
   };
@@ -18,9 +20,9 @@ const Dashboard = ({ prediction, destinationCity, setPrediction }) => {
     <div className={`Dashboard ${isLightMode ? "" : "dark"}`}>
       <FlightPlanner
         isLightMode={isLightMode}
-        onPredict={handlePrediction}
+        onPredict={handlePrediction} // Pass prediction handler
         destinationCity={destinationCity}
-        setDestinationCity={(city) => setPrediction(prediction, city)}
+        setDestinationCity={(city) => setPrediction(prediction, city)} // Update city
       />
       <CostAnalysis
         isLightMode={isLightMode}

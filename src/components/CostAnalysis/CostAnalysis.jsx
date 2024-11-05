@@ -3,6 +3,7 @@ import "./CostAnalysis.css";
 import virgin from "../../assets/icons8-virgin.png";
 import MoreHorizSharpIcon from "@mui/icons-material/MoreHorizSharp";
 
+// Function to retrieve flight code based on destination city
 const getFlightCode = (destinationCity) => {
   if (!destinationCity) {
     return "-";
@@ -20,7 +21,7 @@ const getFlightCode = (destinationCity) => {
 };
 
 const CostAnalysis = ({ destinationCity, prediction }) => {
-  const flightCode = getFlightCode(destinationCity);
+  const flightCode = getFlightCode(destinationCity); // Get flight code for selected city
 
   return (
     <div className="cost-analysis">
@@ -28,11 +29,16 @@ const CostAnalysis = ({ destinationCity, prediction }) => {
         <div className="heading">Cost Analysis</div>
       </div>
       <div className="container-bottom">
-        <img src={virgin} className="virgin-logo" />
+        {/* Airline logo */}
+        <img src={virgin} className="virgin-logo" alt="Virgin Australia Logo" />
+
+        {/* Flight information */}
         <div className="bottom-left">
           <div className="virgin-australia">Virgin Australia</div>
           <div className="flight-code">MLB • {flightCode} • VA</div>
         </div>
+
+        {/* Price prediction display */}
         <div className="bottom-right">
           <div className="price-prediction">
             ${prediction ? prediction["priceMelbourne"] : "-"}
